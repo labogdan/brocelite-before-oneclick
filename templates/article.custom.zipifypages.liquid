@@ -23,10 +23,10 @@
     <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:bb10>{% endcomment -%}
-        {%- include 'locksmith-variables', locksmith_hiding_scope: 'resource' %}{% if locksmith_transparent %}<meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />{% endif -%}
+      {%- comment %}<locksmith:233e>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />{% endif -%}
         {%- comment %}original: <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />{%- endcomment %}
-      {%- comment %}</locksmith:bb10>{% endcomment -%}
+      {%- comment %}</locksmith:233e>{% endcomment -%}
     {% endif %}
 
     <!-- Custom Fonts -->
@@ -172,27 +172,27 @@
             {% if customer.tags contains "wholesale" %}
 				<ul class="wholesale-menu">
               {% for link in linklists.main-menu-wholesale.links %}
-                {%- comment %}<locksmith:03e9>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists.main-menu-wholesale %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:03e9>{% endcomment -%}
+                {%- comment %}<locksmith:e5c3>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists.main-menu-wholesale, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:e5c3>{% endcomment -%}
                 {% if linklists[link.handle] == empty %}
                   <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% else %}
                   <li {% if link.active %}class="Selected"{% endif %}><span>{{ link.title }}</span>
                     <ul>
                       {% for link in linklists[link.handle].links %}
-                        {%- comment %}<locksmith:29e6>{% endcomment -%}
-                          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                        {%- comment %}</locksmith:29e6>{% endcomment -%}
+                        {%- comment %}<locksmith:a5fe>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:a5fe>{% endcomment -%}
                         {% if linklists[link.handle] == empty %}
                           <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                         {% else %}
                         <li {% if link.active %}class="Selected"{% endif %}><span>{{ link.title }}</span>
                           <ul>
                             {% for link in linklists[link.handle].links %}
-                              {%- comment %}<locksmith:bf50>{% endcomment -%}
-                                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                              {%- comment %}</locksmith:bf50>{% endcomment -%}
+                              {%- comment %}<locksmith:fe3a>{% endcomment -%}
+                                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                              {%- comment %}</locksmith:fe3a>{% endcomment -%}
                               <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                             {% endfor %}
                           </ul>
@@ -207,27 +207,27 @@
               {% else %}
             <ul>
                             {% for link in linklists[settings.main_linklist].links %}
-                {%- comment %}<locksmith:6837>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.main_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:6837>{% endcomment -%}
+                {%- comment %}<locksmith:454e>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[settings.main_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:454e>{% endcomment -%}
                 {% if linklists[link.handle] == empty %}
                   <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% else %}
                   <li {% if link.active %}class="Selected"{% endif %}><span>{{ link.title }}</span>
                     <ul>
                       {% for link in linklists[link.handle].links %}
-                        {%- comment %}<locksmith:1dab>{% endcomment -%}
-                          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                        {%- comment %}</locksmith:1dab>{% endcomment -%}
+                        {%- comment %}<locksmith:b93e>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:b93e>{% endcomment -%}
                         {% if linklists[link.handle] == empty %}
                           <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                         {% else %}
                         <li {% if link.active %}class="Selected"{% endif %}><span>{{ link.title }}</span>
                           <ul>
                             {% for link in linklists[link.handle].links %}
-                              {%- comment %}<locksmith:006c>{% endcomment -%}
-                                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                              {%- comment %}</locksmith:006c>{% endcomment -%}
+                              {%- comment %}<locksmith:a1da>{% endcomment -%}
+                                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                              {%- comment %}</locksmith:a1da>{% endcomment -%}
                               <li {% if link.active %}class="Selected"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
                             {% endfor %}
                           </ul>
@@ -339,9 +339,9 @@
             {% if customer.tags contains "wholesale" %}
 
               {% for link in linklists.main-menu-wholesale.links %}
-                {%- comment %}<locksmith:9f8d>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists.main-menu-wholesale %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:9f8d>{% endcomment -%}
+                {%- comment %}<locksmith:2dae>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists.main-menu-wholesale, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:2dae>{% endcomment -%}
                 {% if linklists[link.handle] == empty %}
                   <a href="{{ link.url }}" class="navbar-item {% if link.active %}active{% endif %}">{{ link.title }}</a>
                 {% else %}
@@ -357,9 +357,9 @@
             {% else %}
 
             {% for link in linklists[settings.main_linklist].links %}
-              {%- comment %}<locksmith:8f4a>{% endcomment -%}
-                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.main_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-              {%- comment %}</locksmith:8f4a>{% endcomment -%}
+              {%- comment %}<locksmith:9277>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[settings.main_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:9277>{% endcomment -%}
               {% if linklists[link.handle] == empty %}
                 <a href="{{ link.url }}" class="navbar-item {% if link.active %}active{% endif %}">{{ link.title }}</a>
               {% else %}
@@ -368,9 +368,9 @@
                   <div class="navbar-dropdown">
                   {% if linklists[link.handle] != empty %}
                     {% for link in linklists[link.handle].links %}
-                      {%- comment %}<locksmith:2fed>{% endcomment -%}
-                        {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                      {%- comment %}</locksmith:2fed>{% endcomment -%}
+                      {%- comment %}<locksmith:65e2>{% endcomment -%}
+                        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                      {%- comment %}</locksmith:65e2>{% endcomment -%}
                       <a class="navbar-item" href="{{ link.url }}">{{ link.title }}</a>
                     {% endfor %}
                     </div>
@@ -439,9 +439,9 @@
 
                 <ul class="footer_menu">
                   {% for link in linklists[settings.footer_linklist_1].links %}
-                    {%- comment %}<locksmith:3962>{% endcomment -%}
-                      {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.footer_linklist_1] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                    {%- comment %}</locksmith:3962>{% endcomment -%}
+                    {%- comment %}<locksmith:18b8>{% endcomment -%}
+                      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[settings.footer_linklist_1], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                    {%- comment %}</locksmith:18b8>{% endcomment -%}
                     <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                   {% endfor %}
                 </ul>

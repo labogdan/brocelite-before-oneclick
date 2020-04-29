@@ -310,9 +310,9 @@ To use this file:
 			{% assign bold_ro_convertible_title = all_products[bold_item.properties._convertible_product_handle].title %}
 			{% assign bold_ro_convertible_variant_id = bold_item.properties._convertible_variant_id | times: 1 %}
 			{% for var in all_products[bold_item.properties._convertible_product_handle].variants %}
-			  {%- comment %}<locksmith:a759>{% endcomment -%}
-			    {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: var, locksmith_subject_parent: all_products[bold_item.properties._convertible_product_handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-			  {%- comment %}</locksmith:a759>{% endcomment -%}
+			  {%- comment %}<locksmith:8c3f>{% endcomment -%}
+			    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: var, subject_parent: all_products[bold_item.properties._convertible_product_handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+			  {%- comment %}</locksmith:8c3f>{% endcomment -%}
 			  {% if var.id == bold_ro_convertible_variant_id %}
 				{% assign bold_ro_convertible_product_price = var.price %}
 				{% if var.title != 'Default Title' %}

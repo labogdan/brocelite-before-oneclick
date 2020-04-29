@@ -8,9 +8,9 @@
     <h4 class="toggle"><span>+</span>{{ linklists[settings.collection_sidebar_linklist].title }}</h4>
     <ul class="blog_list toggle_list">
       {% for link in linklists[settings.collection_sidebar_linklist].links %}
-        {%- comment %}<locksmith:6150>{% endcomment -%}
-          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.collection_sidebar_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:6150>{% endcomment -%}
+        {%- comment %}<locksmith:097e>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[settings.collection_sidebar_linklist], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:097e>{% endcomment -%}
         <li>
           <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
           
@@ -18,9 +18,9 @@
             {% assign display_sublinks = false %}
           
             {% for link in linklists[link.handle].links %}
-              {%- comment %}<locksmith:6e50>{% endcomment -%}
-                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-              {%- comment %}</locksmith:6e50>{% endcomment -%}
+              {%- comment %}<locksmith:0983>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:0983>{% endcomment -%}
               {% if link.active %}
                 {% assign display_sublinks = true %}
               {% endif %}
@@ -29,9 +29,9 @@
             {% if display_sublinks or link.active %}
               <ul>
               {% for link in linklists[link.handle].links %}
-                {%- comment %}<locksmith:ddfd>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:ddfd>{% endcomment -%}
+                {%- comment %}<locksmith:0fb2>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:0fb2>{% endcomment -%}
                 <li>
                   <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
                 </li>
@@ -48,9 +48,9 @@
     <h4 class="toggle"><span>+</span>{{ linklists[settings.collection_sidebar_linklist2].title }}</h4>
     <ul class="blog_list toggle_list">
       {% for link in linklists[settings.collection_sidebar_linklist2].links %}
-        {%- comment %}<locksmith:b464>{% endcomment -%}
-          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.collection_sidebar_linklist2] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:b464>{% endcomment -%}
+        {%- comment %}<locksmith:1ef1>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[settings.collection_sidebar_linklist2], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:1ef1>{% endcomment -%}
         <li>
           <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
           
@@ -58,9 +58,9 @@
             {% assign display_sublinks = false %}
           
             {% for link in linklists[link.handle].links %}
-              {%- comment %}<locksmith:d12e>{% endcomment -%}
-                {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-              {%- comment %}</locksmith:d12e>{% endcomment -%}
+              {%- comment %}<locksmith:4ddc>{% endcomment -%}
+                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+              {%- comment %}</locksmith:4ddc>{% endcomment -%}
               {% if link.active %}
                 {% assign display_sublinks = true %}
               {% endif %}
@@ -69,9 +69,9 @@
             {% if display_sublinks or link.active %}
               <ul>
               {% for link in linklists[link.handle].links %}
-                {%- comment %}<locksmith:f9f3>{% endcomment -%}
-                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:f9f3>{% endcomment -%}
+                {%- comment %}<locksmith:8a30>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[link.handle], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:8a30>{% endcomment -%}
                 <li>
                   <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
                 </li>
@@ -106,9 +106,9 @@
     <h4 class="toggle"><span>+</span>{{ 'collections.sidebar.collections' | t }}</h4>
     <ul class="blog_list toggle_list">
       {% for col in collections %}
-        {%- comment %}<locksmith:991e>{% endcomment -%}
-          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: col %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:991e>{% endcomment -%}
+        {%- comment %}<locksmith:f6fa>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: col, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:f6fa>{% endcomment -%}
         {% unless col.handle == 'frontpage' %}
           <li {% if col.handle == collection.handle %}class="active"{% endif %}><a href="{{ col.url }}" title="{{ col.title | escape }}">{{ col.title }}</a></li>
         {% endunless %}

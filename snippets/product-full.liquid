@@ -1,10 +1,10 @@
 {% for product in products %}
-  {%- comment %}<locksmith:1943>{% endcomment -%}
-    {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: product %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:1943>{% endcomment -%}
+  {%- comment %}<locksmith:c4c3>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:c4c3>{% endcomment -%}
   {% assign collection_handles = product.collections | map: 'handle' %}
   {% capture left_product_layout %}
-    <div class="product-{{ product.id }} section clearfix" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">   
+    <div class="product-{{ product.id }} section clearfix" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
       <div class="seven columns offset-by-two alpha animate_left">
         {% include 'product-images' %}
       </div>

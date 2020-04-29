@@ -40,9 +40,9 @@
 
 {% for collection in collections %}
 
-  {%- comment %}<locksmith:6d2b>{% endcomment -%}
-    {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: collection %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-  {%- comment %}</locksmith:6d2b>{% endcomment -%}
+  {%- comment %}<locksmith:de96>{% endcomment -%}
+    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+  {%- comment %}</locksmith:de96>{% endcomment -%}
 
   {% unless collection.handle == 'frontpage' %}
     {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}

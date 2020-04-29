@@ -1,0 +1,190 @@
+<link href="https://cdn03.zipify.com/css/zipifypages.css" rel="stylesheet">
+
+<div class="container">
+  <div class="columns">
+    <div class="column center-image">
+      {{ 'logo_home.png' | asset_url | img_tag }}
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column with-bg">
+    <div class="container">
+      <h1>BrocElite™ Reservation Page</h1>
+      <h2>Congratulations! You’re just one step away from getting your own supply of BrocElite™ rushed to you.</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container guarantee">
+  <div class="columns">
+    <div class="column is-half">
+      <span class="blue_medium">This scientifically-verified formula helps promote:</span>
+        <ul>
+          <li>A sharper, younger brain</li>
+          <li>Detoxification of every cell in your body</li>
+          <li>Natural relief of pain caused by inflammation </li>
+          <li>A boost in your energy</li>
+        </ul>
+    </div>
+
+    <div class="column is-half">
+      <p class="large_black">100% Money Back Guarantee</p>
+      <p class="small_black">
+        It's important to know that we back BrocElite with a 100% SATISFACTION GUARANTEE.
+        {{ 'money-back-guarantee.png' | asset_url | img_tag }}
+        <br /><br />
+        We promise that you will be thrilled with BrocElite. If you decide that we're wrong, then
+        simply send your unused supply back and we'll refund you.  It's that simple.
+        <br /><br />
+        We won't even ask why you're returning it.  We'll simply issue you a FULL REFUND for bottles
+        you've purchased within 90 days.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <div class="container has-text-centered">
+      <i class="fas fa-shipping-fast landing-page-fa"></i> <span class="blue_medium">Free US Shipping Today, when you buy 3+ bottles!</span>
+    </div>
+  </div>
+</div>
+
+<div class="container three_product_row">
+  <div class="selected item columns is-vcentered">
+    <div class="rotated-text">
+      <p>Best Value</p>
+    </div>
+    <div class="column">
+      <figure class="image">
+        <img src={{ 'brocelite_plus_6_landing.png' | asset_img_url: 'x240' }} />
+      </figure>
+    </div>
+    <div class="column">
+      <div class="large">6 Bottles</div>
+      <div class="medium">6 Month Supply</div>
+      <div class="small">$189</div>
+    </div>
+    <div class="column">
+      <button id="addtocart1" class="button is-warning is-large">ADD TO ORDER</button>
+      <div class="list-price">List Price: <del>$239.70</del></div>
+      <div class="today">Today's Price: $189</div>
+      <div class="save">Savings: $50</div>
+      <div class="save">20% OFF</div>
+    </div>
+  </div>
+  <div class="item columns is-vcentered">
+    <div class="rotated-text inactive">
+    </div>
+    <div class="column">
+      <figure class="image">
+        <img src={{ 'brocelite_plus_3_landing.jpg' | asset_img_url: 'x240' }} />
+      </figure>
+    </div>
+    <div class="column">
+      <div class="large">3 Bottles</div>
+      <div class="medium">3 Month Supply</div>
+      <div class="small">$99</div>
+    </div>
+    <div class="column">
+      <button id="addtocart2" class="button is-warning is-large">ADD TO ORDER</button>
+      <div class="list-price">Retail: <del>119.85</del></div>
+      <div class="today">Today's Price: $99</div>
+      <div class="save">Savings: $20.37</div>
+      <div class="save">17% OFF</div>
+    </div>
+  </div>
+  <div class="item columns is-vcentered">
+    <div class="rotated-text inactive">
+    </div>
+    <div class="column">
+      <figure class="image">
+        <img src={{ 'brocelite_plus_1_landing.png' | asset_img_url: 'x240' }} />
+      </figure>
+    </div>
+    <div class="column">
+      <div class="large">1 Bottle</div>
+      <div class="medium">Try it for 30-Days</div>
+      <div class="small">$35.95</div>
+    </div>
+    <div class="column">
+      <button id="addtocart3" class="button is-warning is-large">ADD TO ORDER</button>
+      <div class="list-price">Retail: <del>$39.95</del></div>
+      <div class="today">Today's Price: $35.95</div>
+      <div class="save">Savings: $4.00</div>
+      <div class="save">10% OFF</div>
+    </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <div class="has-text-centered">
+      {{ 'visa-2020.png' | asset_url | img_tag }}
+      <p>We kindly accept Visa, Mastercard, Discover and American Express.</p>
+    </div>
+  </div>
+</div>
+
+
+
+{% assign testimonials-bg-color-class = 'gray-bg' %}
+{% include 'testimonials' %}
+
+
+
+<div class="columns">
+  <div class="column">
+    <iframe id="uc_checkout" src="" style="width:100%; height: 1400px;" scrolling="no"></iframe>
+  </div>
+</div>
+
+<script>
+      $(document).ready(function(){
+
+        const $iframe = $("#uc_checkout");
+        console.log('ready!!!');
+
+        $("#addtocart1").on('click', function (event) {
+          console.log('clicked');
+          event.preventDefault();
+          $iframe.css({
+            height: '1400px'
+          });
+          $iframe.attr("src", "https://brocelite.ultracartstore.com/cgi-bin/UCEditor?merchantId=BRELT&ADD=BE-30-6-Bottle");
+          $('html, body').animate({
+            scrollTop: $iframe.offset().top
+          }, 1000);
+        })
+
+        $("#addtocart2").on('click', function (event) {
+          console.log('clicked');
+          event.preventDefault();
+          $iframe.css({
+            height: '1400px'
+          });
+          $iframe.attr("src", "https://brocelite.ultracartstore.com/cgi-bin/UCEditor?merchantId=BRELT&ADD=BE-30-3-Bottle");
+          $('html, body').animate({
+            scrollTop: $iframe.offset().top
+          }, 1000);
+        })
+
+        $("#addtocart3").on('click', function (event) {
+          console.log('clicked');
+          event.preventDefault();
+          $iframe.css({
+            height: '1400px'
+          });
+          $iframe.attr("src", "https://brocelite.ultracartstore.com/cgi-bin/UCEditor?merchantId=BRELT&ADD=BE-30-1-Bottle");
+          $('html, body').animate({
+            scrollTop: $iframe.offset().top
+          }, 1000);
+        })
+
+
+      });
+</script>

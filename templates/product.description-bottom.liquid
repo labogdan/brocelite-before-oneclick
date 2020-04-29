@@ -118,14 +118,14 @@
           <p>
             <span class="label">{{ 'products.product.collections' | t }}:</span>
             <span>
-             {%- comment %}<locksmith:0fb5>{% endcomment -%}
-               {%- assign locksmith_4b15_forloop__size = 0 %}{% for col in product.collections %}{% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: col %}{% if locksmith_transparent %}{% assign locksmith_4b15_forloop__size = locksmith_4b15_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_4b15_forloop__index = nil -%}
-             {%- comment %}</locksmith:0fb5>{% endcomment -%}
+             {%- comment %}<locksmith:de2d>{% endcomment -%}
+               {%- assign locksmith_1ad0_forloop__size = 0 %}{% for col in product.collections %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: col, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_1ad0_forloop__size = locksmith_1ad0_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_1ad0_forloop__index = nil -%}
+             {%- comment %}</locksmith:de2d>{% endcomment -%}
              {% for col in product.collections %}
-               {%- comment %}<locksmith:da66>{% endcomment -%}
-                 {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: col, locksmith_subject_parent: product %}{% if locksmith_transparent %}{% if locksmith_4b15_forloop__index == nil %}{% assign locksmith_4b15_forloop__index = 1 %}{% assign locksmith_4b15_forloop__index0 = 0 %}{% else %}{% assign locksmith_4b15_forloop__index = locksmith_4b15_forloop__index | plus: 1 %}{% assign locksmith_4b15_forloop__index0 = locksmith_4b15_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_4b15_forloop__index == 1 %}{% assign locksmith_4b15_forloop__first = true %}{% else %}{% assign locksmith_4b15_forloop__first = false %}{% endif %}{% if locksmith_4b15_forloop__index == locksmith_4b15_forloop__size %}{% assign locksmith_4b15_forloop__last = true %}{% else %}{% assign locksmith_4b15_forloop__last = false %}{% endif %}{% assign locksmith_4b15_forloop__rindex = locksmith_4b15_forloop__size | minus: locksmith_4b15_forloop__index | minus: 1 %}{% assign locksmith_4b15_forloop__rindex0 = locksmith_4b15_forloop__size | minus: locksmith_4b15_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-               {%- comment %}</locksmith:da66>{% endcomment -%}
-               <a href="{{ col.url }}" title="{{ col.title }}">{{ col.title }}</a>{% unless locksmith_4b15_forloop__last %},{% endunless %}
+               {%- comment %}<locksmith:074a>{% endcomment -%}
+                 {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: col, subject_parent: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_1ad0_forloop__index == nil %}{% assign locksmith_1ad0_forloop__index = 1 %}{% assign locksmith_1ad0_forloop__index0 = 0 %}{% else %}{% assign locksmith_1ad0_forloop__index = locksmith_1ad0_forloop__index | plus: 1 %}{% assign locksmith_1ad0_forloop__index0 = locksmith_1ad0_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_1ad0_forloop__index == 1 %}{% assign locksmith_1ad0_forloop__first = true %}{% else %}{% assign locksmith_1ad0_forloop__first = false %}{% endif %}{% if locksmith_1ad0_forloop__index == locksmith_1ad0_forloop__size %}{% assign locksmith_1ad0_forloop__last = true %}{% else %}{% assign locksmith_1ad0_forloop__last = false %}{% endif %}{% assign locksmith_1ad0_forloop__rindex = locksmith_1ad0_forloop__size | minus: locksmith_1ad0_forloop__index | minus: 1 %}{% assign locksmith_1ad0_forloop__rindex0 = locksmith_1ad0_forloop__size | minus: locksmith_1ad0_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+               {%- comment %}</locksmith:074a>{% endcomment -%}
+               <a href="{{ col.url }}" title="{{ col.title }}">{{ col.title }}</a>{% unless locksmith_1ad0_forloop__last %},{% endunless %}
              {% endfor %}
            </span>
          </p>

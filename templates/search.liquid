@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:b06b>{% endcomment -%}
-  {%- if search.results %}{% paginate search.results by 50 %}{% assign locksmith_search__results_count = 0 %}{% for result in search.results %}{% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: result, locksmith_subject_parent: search %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif %}{% assign locksmith_search__results_count = locksmith_search__results_count | plus: 1 %}{% endfor %}{% endpaginate %}{% endif -%}
-{%- comment %}</locksmith:b06b>{% endcomment -%}
+{%- comment %}<locksmith:4c9c>{% endcomment -%}
+  {%- if search.results %}{% paginate search.results by 50 %}{% assign locksmith_search__results_count = 0 %}{% for result in search.results %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: result, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif %}{% assign locksmith_search__results_count = locksmith_search__results_count | plus: 1 %}{% endfor %}{% endpaginate %}{% endif -%}
+{%- comment %}</locksmith:4c9c>{% endcomment -%}
 
 {% assign search_pagination = settings.pagination_limit %}
 {% paginate search.results by search_pagination %}
@@ -12,22 +12,22 @@
       <li>
         {{ 'general.search.results_count' | t: count: locksmith_search__results_count }}
       </li>
-    </ul>    
+    </ul>
   {% endif %}
 </div>
 
 {% if search.performed %}
-  
-  {% if search.results == empty %}    
+
+  {% if search.results == empty %}
     <br class="clear" />
     <br class="clear" />
-    <div class="clearfix">    
-      <p class="quote">{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>      
+    <div class="clearfix">
+      <p class="quote">{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
     </div>
 
     <br class="clear" />
     <br class="clear" />
-  {% else %}  
+  {% else %}
 
  {% if settings.search_option == 'everything' or search.results.first.price == blank %}
 
@@ -39,9 +39,9 @@
   {% endif %}
 
     {% for item in search.results %}
-{%- comment %}<locksmith:61db>{% endcomment -%}
-  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: item, locksmith_subject_parent: search %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-{%- comment %}</locksmith:61db>{% endcomment -%}
+{%- comment %}<locksmith:3673>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+{%- comment %}</locksmith:3673>{% endcomment -%}
 {%- include 'bold-product' with item, hide_action: 'skip' -%}
       <div class="product_row">
         {% assign featured_image = false %}
@@ -52,33 +52,33 @@
              <a href="{{ item.url }}" title="{{ item.title | escape }}">
                 <img src="{{ item.image | img_url: 'grande' }}"  alt="{{ item.title | escape }}" />
              </a>
-          </div> 
+          </div>
         {% elsif item.featured_image %}
           {% assign featured_image = true %}
           <div class="four columns alpha">
              <a href="{{ item.url }}" title="{{ item.title | escape }}">
                 <img src="{{ item.featured_image | product_img_url: 'grande' }}"  alt="{{ item.title | escape }}" />
              </a>
-          </div> 
+          </div>
         {% endif %}
-        
+
         {% if settings.collection_sidebar %}
           <div class="{% if featured_image %}eight{% else %}twelve{% endif %} columns omega align_left">
         {% else %}
           <div class="{% if featured_image %}twelve{% else %}sixteen alpha{% endif %} columns omega align_left">
-        {% endif %}        
+        {% endif %}
 
           <h5 class="sub_title">
             <a href="{{ item.url }}" title="{{ item.title | escape }}">{{ item.title }}</a>
-          </h5> 
+          </h5>
 
           {% if bold_price %}
-             <div class="info">                                              
+             <div class="info">
                 <span class="price">
                   {% if bold_compare_at_price_max > bold_price %}
                     <span class="was_price">{{ bold_compare_at_price_max | money }}</span>
                   {% endif %}
-                    
+
                   {% if item.available %}
                     {% if bold_price_varies %}
                       {% if bold_compare_at_price_max > bold_price %}
@@ -93,7 +93,7 @@
                 </span>
             </div>
           {% endif %}
-          
+
           {% if item.object_type == 'article' %}
             <p class="blog_meta">
               {% if settings.blog_author %}
@@ -108,21 +108,21 @@
 
           {% if item.excerpt %}
             <div class="excerpt">{{ item.excerpt }}</div>
-            
+
             {% if settings.read_more_link %}
               <p>
                 <a href="{{ item.url }}" title="{{ item.title | escape }}">{{ 'blogs.general.continue_reading_html' | t }} <span class="icon-right-arrow"></span></a>
-              </p>                
-            {% endif %}  
+              </p>
+            {% endif %}
           {% else %}
             <p>
               {{ item.content | strip_html | truncatewords: 40 | highlight: search.terms | replace: 'Description', '' | replace: 'Specs', '' | replace: 'Shipping', '' | replace: 'Size', '' }}
-            </p>         
+            </p>
           {% endif %}
         </div>
-      </div>  
-    <hr />  
-   {% endfor %}  
+      </div>
+    <hr />
+   {% endfor %}
   </div>
 
  {% else %}
@@ -141,17 +141,17 @@
     {% endif %}
   {% endif %}
 
-  {% include 'pagination' %}    
+  {% include 'pagination' %}
 
 {% else %}
-  <div class="clearfix search_page">  
+  <div class="clearfix search_page">
     <br class="clear" />
-    <br class="clear" />   
+    <br class="clear" />
     <div class="ten columns offset-by-three columns center">
       <p class="quote">
         {{ 'general.search.description' | t }}
       </p>
-    </div>    
+    </div>
       <form class="search" action="/search">
         <div class="four offset-by-five columns center">
           {% if settings.search_option != 'everything' %}

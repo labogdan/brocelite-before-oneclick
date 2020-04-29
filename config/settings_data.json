@@ -1509,11 +1509,11 @@
     "cart_action": "ajax",
     "side_cart_position": "right",
     "display_special_instructions": false,
-    "display_tos_checkbox": false,
+    "display_tos_checkbox": true,
     "show_shipping_calculator": false,
     "shipping_calculator_default_country": "United States",
     "blog_posts_per_page": "12",
-    "blog_articles_per_row": "1",
+    "blog_articles_per_row": "3",
     "blog_breadcrumb": false,
     "blog_tags": false,
     "blog_author": false,
@@ -1521,7 +1521,7 @@
     "blog_comment_count": false,
     "read_more_link": true,
     "blog_additional_articles": true,
-    "sidebar_enabled": true,
+    "sidebar_enabled": false,
     "blog_search": true,
     "blog_newsletter": true,
     "display_recent_articles": true,
@@ -1765,6 +1765,77 @@
     "social_icons_enabled": "true",
     "headline_sub_footer_text_color": "#404040",
     "option_to_match": "",
+    "sections": {
+      "new-cart-icons": {
+        "type": "new-cart-icons",
+        "blocks": {
+          "1573114904724": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon1.png",
+              "heading": "",
+              "code": "<span><h4>INFLAMMATION<\/h4>Your body responds to stress and injury by increasing blood flow and white blood cells to the affected area. However, when the source of the injury is chronic, inflammation hurts more than it helps. Sulphoraphane helps reduce inflammation, allowing the area to heal.<\/span>"
+            }
+          },
+          "1573114932442": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon2.png",
+              "heading": "PROTECTS BRAIN FUNCTION",
+              "code": "<span><h4>PROTECTS BRAIN FUNCTION<\/h4>As we age, our cognitive function typically undergoes a decline. This decline is not inevitable. In studies, sulphoraphane was shown to support existing neurons and encourage the formation of new ones. Additionally, in animal models, it helped reduce the incidence of neurodegenerative disease.<\/span>"
+            }
+          },
+          "1573114945187": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon3.png",
+              "heading": "ENCOURAGES DETOXIFICATION",
+              "code": "<span><h4>ENCOURAGES DETOXIFICATION<\/h4>Our bodies are constantly under assault by toxins in the air, our diets and even in our homes. Sulphoraphane helps increase the antioxidant capacity of our cells to aid in detoxification.<\/span>"
+            }
+          },
+          "1573114957795": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon4.png",
+              "heading": "",
+              "code": "<span><h4>ANTIVIRAL<\/h4>Stay healthier with the power of broccoli. Sulforaphane supports the immune system and helps macrophages clear the organisms that can make you sick.<\/span>"
+            }
+          },
+          "1573114967548": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/icon5.png",
+              "heading": "POWERFUL ANTIOXIDANT",
+              "code": "<span><h4>POWERFUL ANTIOXIDANT<\/h4>Oxidative stress can cause damage to your cells. Sulphoraphane helps increase the antioxidant capacity of cells throughout the body.<\/span>"
+            }
+          }
+        },
+        "block_order": [
+          "1573114904724",
+          "1573114932442",
+          "1573114945187",
+          "1573114957795",
+          "1573114967548"
+        ],
+        "settings": {}
+      },
+      "image-text-cart": {
+        "type": "image-text-cart",
+        "blocks": {
+          "1573119801517": {
+            "type": "html",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Gaurantee_Seal_sm.png",
+              "code": "<span>We want to make sure that you shop with us with confidence. That is why, if you are not completely satisfied with our product, we are happy to offer a 100%, 60-day money-back guarantee on your first bottle purchased from our website. No questions asked.<\/span>"
+            }
+          }
+        },
+        "block_order": [
+          "1573119801517"
+        ],
+        "settings": {}
+      }
+    },
     "content_for_index": []
   }
 }

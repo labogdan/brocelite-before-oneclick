@@ -1,5 +1,5 @@
 {% comment %}
-  Updated: 2019/08/27
+  Updated: 2019/11/04
 {% endcomment %}
 
 {% unless upsellapp_included == true %}
@@ -114,9 +114,9 @@
   {% endif %}
   {% assign cart_collections = '' | split: ',' %}
   {% for cart_collection in all_cart_collections %}
-    {%- comment %}<locksmith:824d>{% endcomment -%}
-      {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: cart_collection %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-    {%- comment %}</locksmith:824d>{% endcomment -%}
+    {%- comment %}<locksmith:1888>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: cart_collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:1888>{% endcomment -%}
     {% assign cart_collection_json = '' | split: ',' %}
     {% for collection_field_name in needed_collection_fields_names %}
       {% assign collection_field_value = cart_collection[collection_field_name] | json %}
@@ -205,6 +205,8 @@
         }
 
     };
+
+    lqd.cart_products_json = lqd.cart_products_json.filter(function(item) { return item.handle; });
 
     (function getShareableDiscount() {
         var params = utils.queryParams(location.search);
@@ -318,10 +320,35 @@
 
         function handleDocumentClick(e) {
             if (lqd.template_name === 'page' && !e.isTrusted) return;
+            if (!lqd.amazon_pay && e.target.closest('form[action^="https://payments.amazon"]')) return;
+
+            if ((e.target.dataset.skipCart === 'true' || e.target.closest('[data-skip-cart]')) && submitted) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
 
             if (e.target.dataset.ocuCheckoutLink || e.target.closest('[data-ocu-checkout-link]')) {
                 e.preventDefault();
                 return handleCartAddLink(e);
+            }
+
+            if (e.target.dataset.customBuyNow) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var id = e.target.dataset.varientId;
+                var qty = e.target.dataset.itemQuantity;
+                var data = { id: id, quantity: qty };
+                var onSuccess = function() { oneClickUpsellGetCheckoutUrl({ redirect:true }) };
+
+                jQ.ajax({
+                    type: 'POST',
+                    url: '/cart/add.js',
+                    dataType: 'json',
+                    data: data,
+                    success: onSuccess
+                });
             }
 
             var isBoldInstalled = window.BOLD && BOLD.apps_installed;
@@ -356,8 +383,29 @@
 
             var parent = !isInclude
                 && (e.target.closest('[data-ocu-checkout]')
-                || e.target.closest('form[action="/checkout"] [type="submit"]')
-                || e.target.closest('form[action="/cart"] [type="submit"]'));
+                || !e.target.closest('.cart_content') && e.target.closest('form[action="/checkout"] [type="submit"]')
+                || lqd.template_name === 'cart' && e.target.closest('form[action="/cart"] [type="submit"]'))
+                || e.target.closest('[name="checkout"]');
+
+            if (e.target.closest('form[action^="https://payments.amazon"]')) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var form = e.target.closest('form[action^="https://payments.amazon"]');
+                var path = {
+                    ocu: lqd.proxy_url + '/amazon/forward',
+                    shopify: form.querySelector('[name="redirectURL"]').value
+                };
+
+                return oneClickUpsellGetCheckoutUrl()
+                     .then(function(res) {
+                          var reg = new RegExp(lqd.proxy_url + '\\/(.+)\\??');
+                          var match = reg.exec(res.checkout_url);
+                          var token = match && match[1];
+                          utils.cookie.set('ocu_checkout_token', token, utils.cookie.options);
+                      })
+                      .catch(function(res) { location = path.shopify });
+            }
 
             if (!isInclude && !parent) return;
 
@@ -554,6 +602,46 @@
                 jQ(upsellCheckoutButtonSelectors).attr('data-disable-recharge', true);
 
                 document.addEventListener('mousedown', function(e) {
+                    var amazonForm = e.target.closest('form[action^="https://payments.amazon"]');
+                    if (amazonForm && lqd.amazon_pay) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        var path = {
+                            ocu: lqd.proxy_url + '/amazon/forward',
+                            shopify: amazonForm.querySelector('[name="redirectURL"]').value
+                        };
+
+                        if (e.target.closest('form[action="/cart/add"]')) {
+                            var cart = document.querySelector('form[action="/cart/add"]');
+                            var button = amazonForm.querySelector('[type="submit"]');
+                            return addToCart(cart, button, path);
+                        }
+
+                        return oneClickUpsellGetCheckoutUrl()
+                            .then(function(res) {
+                                var reg = new RegExp(lqd.proxy_url + '\\/(.+)\\??');
+                                var match = reg.exec(res.checkout_url);
+                                var token = match && match[1];
+                                utils.cookie.set('ocu_checkout_token', token, utils.cookie.options);
+                                location = path[res.status ? 'ocu' : 'shopify'];
+                            })
+                            .catch(function(res) { location = path.shopify });
+                    }
+
+                    if (e.target.dataset.skipCart === 'true' || e.target.closest('[data-skip-cart]')) {
+                        var form = e.target.closest('form[action="/cart/add"]') || document.querySelector('form[action="/cart/add"]');
+                        var button = e.target.dataset.skipCart === 'true' ? e.target : e.target.closest('[data-skip-cart]');
+
+                        if (!form) return;
+
+                        e.preventDefault();
+                        e.stopPropagation();
+                        submitted = true;
+
+                        return addToCart(form, button);
+                    }
+
                     var isInclude = Array.prototype.some.call(jQ(upsellCheckoutButtonSelectors), function(el) {
                         return el === e.target || e.target.dataset.ocuCheckout === 'true';
                     });
@@ -564,9 +652,29 @@
                         || e.target.closest('form[action="/cart"] [type="submit"]'));
 
                     if (!isInclude && !parent || e.target.closest('form[action="/cart/add"]')) return;
+
                     e.preventDefault();
-                  	e.stopPropagation();
-                  	e.stopImmediatePropagation();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                }, true);
+
+                document.addEventListener('touchstart', function(e) {
+                    var isInclude = Array.prototype.some.call(jQ(upsellCheckoutButtonSelectors), function(el) {
+                        return el === e.target || e.target.dataset.ocuCheckout === 'true';
+                    });
+
+                    var parent = !isInclude
+                        && (e.target.closest('[data-ocu-checkout]')
+                        || e.target.closest('form[action="/checkout"] [type="submit"]')
+                        || e.target.closest('form[action="/cart"] [type="submit"]'));
+
+                    if (!isInclude && !parent || e.target.closest('form[action="/cart/add"]')) return;
+
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+
+                  upsellsCheckoutRedirect(e);
                 }, true);
 
                 document.addEventListener('click', handleDocumentClick, true);
@@ -945,7 +1053,6 @@
                 item.button.removeAttribute('onclick');
                 item.button.dataset.skipCart = true;
                 item.button.type = 'button';
-                setTimeout(function() { item.button.classList.add('ocu-hidden')});
 
                 try {
                     item.sibling
@@ -956,6 +1063,7 @@
                 }
 
                 item.button.dataset.ocuClone = true;
+                item.button.classList.add('ocu-hidden');
             });
 
             listenAddToCartEvents(forms);
@@ -1001,6 +1109,11 @@
         function buyNow(container, e) {
             var button = container.querySelector('.shopify-payment-button__button');
             var form = button.closest('form[action*="cart"]');
+            var closestBuyNow = e.target.closest('[data-ocu-buy-now]');
+            var isPaypalButton = e.target.dataset.testid === 'PayPalInContext-button'
+                                || (closestBuyNow && closestBuyNow.querySelector('[data-testid="PayPalInContext-button"]'));
+
+            isPaypalButton = isPaypalButton && lqd.upsell_cart_include_upsells;
             button.dataset.ocuBuyNow = true;
 
             var item = {
@@ -1024,8 +1137,10 @@
 
             var preventAction = !e.target.dataset.ocuBuyNow
                 && (/submit|button/i.test(e.target.type) ? !e.target.querySelector('[data-ocu-buy-now]') : true)
-                && !e.target.closest('[data-ocu-buy-now]')
-                || buyNowClicked;
+                && !closestBuyNow
+                || buyNowClicked
+                || !e.isTrusted
+                || !isPaypalButton;
 
             if (preventAction) return;
 
@@ -1033,7 +1148,7 @@
             e.stopImmediatePropagation();
 
             var canBuyNow =
-                (e.target.dataset.testid === 'Checkout-button' || e.target.closest('[data-ocu-buy-now]').dataset.testid === 'Checkout-button')
+                (e.target.dataset.testid === 'Checkout-button' || closestBuyNow.dataset.testid === 'Checkout-button' || isPaypalButton)
                 && (e.target.closest('form[action="/cart/add"]') || document.querySelector('form[action="/cart/add"]'));
 
             if (canBuyNow) {
@@ -1044,9 +1159,15 @@
         }
 
         function addToCart(form, button, path) {
+            var noId = function(data) { return !/id/.test(data); };
             var data = jQ(form).serialize();
-            var isId = /id/.test(data);
-            if (!isId) data = jQ('#AddToCartForm').serialize();
+
+            if (noId(data)) data = jQ('#AddToCartForm').serialize();
+
+            if (noId(data)) {
+                var idOnBtn = document.querySelector('[data-cart-add]');
+                if (idOnBtn) data = 'id=' + idOnBtn.dataset.cartAdd;
+            }
 
             var params = {
                 type: 'POST',
@@ -1240,7 +1361,10 @@
 
             if (!$cart) return jQ.Deferred().resolve();
 
+            jQ($cart).find('input[name="updates[]"][type="hidden"]').attr('disabled', true);
+
             var data = jQ($cart).serializeArray();
+
             if (jQ('[name="currency"]').length) {
                 data.push({ name: 'currency', value: lqd.shop_currency });
             }
@@ -1296,6 +1420,8 @@
 
             req.done(function(res) {
                 if (!res.status) {
+                    if (cart.redirect_url) return location = cart.redirect_url;
+
                     lqd.skip_cart && /index|collection|product/.test(lqd.template_name)
                          ? (location.pathname = '/cart')
                          : redirectToCheckout();
@@ -1407,6 +1533,8 @@
             if (window.ol_checkout_ok instanceof Function && !ol_checkout_ok()) return; // integration with OrderLogic
 
             if (el.dataset.zpaSubmitButton === '') return; // integration with ZipifyPages CRM popup
+
+            if (window.vitals_upsells) return; // integration with Vitals
 
             return result;
         }

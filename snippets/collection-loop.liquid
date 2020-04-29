@@ -3,9 +3,9 @@
 <div class="featured_collections">
   {% for link in linklist.links %}
 
-    {%- comment %}<locksmith:6b43>{% endcomment -%}
-      {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklist %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
-    {%- comment %}</locksmith:6b43>{% endcomment -%}
+    {%- comment %}<locksmith:9bb6>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklist, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:9bb6>{% endcomment -%}
 
     {% comment %}
       This section supports linking to collections, products, pages, and blogs. It will use the first image found in the page content or blog article.

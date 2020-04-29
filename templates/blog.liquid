@@ -11,7 +11,7 @@
   </div>
 </div>
 
-  <div class="container columns">
+  <div id="blog-container" class="container columns">
 
 {% paginate blog.articles by settings.blog_posts_per_page %}
 
@@ -56,10 +56,10 @@
     {% for article in blog.articles %}
 
           <div class="is-9 column omega article_image">
-                            <h2><a href="{{ article.url }}" style="text-decoration:none !important;">{{ article.title }}</a></h2>
 <a href="{{ article.url }}" title="{{ article.title | escape }}">
               <img src="{{ article.image | img_url: '1024x1024' }}" alt="{{ article.title | escape }}" />
             </a>
+            				<h2><a href="{{ article.url }}" style="text-decoration:none !important;">{{ article.title }}</a></h2>
             <p>{{ article.created_at | date: "%B %d, %Y" }}</p>
                         <div class="excerpt"> {{ article.content | strip_html | truncatewords:45 }}</div>
             {% if settings.read_more_link %}

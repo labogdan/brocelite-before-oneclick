@@ -1,0 +1,1601 @@
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js%20"></script>
+
+
+
+<div class="contentwrapper" style=" max-width:900px; border-radius: 0;">
+
+<div class="banner banner--sol">
+      <div class="banner__logo--sol">
+        <img src="https://d13p2xj50zkyqm.cloudfront.net/promos/health/assets/SOL/SolaireNutraceuticals_White_logo.png" alt="Solaire" width="100%">
+      </div>
+    <div class="banner__phone--sol">
+        <p class="smalltext phonenumb banner__phoneP--sol">Order By Phone:
+            <br>
+          <span class="largerBold"><strong><a class="tel" href="tel:1-888-621-6853">(888)-621-6853</a></strong></span>
+        </p>
+    </div>
+</div>
+
+<div class="innercontent">
+<div class="row collpase">
+  <div class="columns medium-5 small-11 small-centered medium-uncentered">
+    <p class="smalltext">A message from Dr. Gerhauser: <i class="material-icons Pause" onclick="document.getElementById('demo').pause()">pause</i><i class="material-icons Play" onclick="document.getElementById('demo').play()">play_arrow</i></p>
+
+  <audio id="demo" src="https://s3.amazonaws.com/agorafinancial/OrderFormAudio/SOL_OFAUDIO_09_91_17.mp3" autoplay="autoplay">  <p></p>
+</audio>
+  </div>
+
+</div>
+
+<h2>AstaVida™ <br class="show-for-small-only">Reservation Page</h2>
+<p class="subheader">Congratulations! You're only two steps away from getting your own supply of AstaVida rushed to you.</p>
+
+<div class="row">
+  <div class="medium-6 columns">
+    <p style="color:#0055B8;"><strong>This powerful formula revitalizes your mitochondria, helping to give you:</strong></p>
+ <ul class="disc" style="margin: 0em 2em 0.25em 2em; font-weight:bold;">
+   <li>Smoother skin, sharper vision, and clearer focus</li>
+   <li>Healthier blood pressure and blood sugar</li>
+   <li>And perhaps even 10 more years to your lifespan</li>
+</ul>
+<p>Best of all… AstaVida begins working its magic in 7 short days!</p>
+  </div>
+  <div class="medium-6 columns greybox">
+    <h3 class="guara">100% MONEY BACK Guaranteed</h3>
+    <img src="https://d13p2xj50zkyqm.cloudfront.net/promos/health/GLN/renewgen_0117/OFtest/GuaranteeLogo.png" alt="" class="image_right" width="30%">
+    <p>It's important to know, <strong><em>AstaVida </em></strong>is backed by my 100% SATISFACTION GUARANTEE. This means I personally pledge you will be <em>thrilled</em> with how your health improves. If you decide I'm wrong, simply send your unused supply back. It's that simple. You don't even need to give me a reason. I'll issue you a FULL REFUND for your bottles purchased today, no questions asked. Your guarantee NEVER expires. You can request a refund any time in the future.</p>
+  </div>
+</div>
+<div class="clear" style="margin:1em;"></div>
+
+<div id="af_form_wrapper" class="af_form_wrapper">
+
+
+  <form method="post">
+
+
+
+<p class="chooseInfo chooseInfo--sol" id="packArea">Step 1: Choose a Package Option</p>
+        <script language="javascript">
+
+        Namespace('AGORA', {
+            pricingOptionMap: {},
+            shippingOptionMap: {},
+            setPricingOptionIdIfHidden: function(choiceId) {
+                if(choiceId in AGORA.pricingOptionMap){
+                    AGORA.setPricingOptionIdSelection(AGORA.pricingOptionMap[choiceId]);
+                    if($('#__billingEmailAddress__').val() != null && $('#__billingEmailAddress__').val().length != 0) {
+                        AGORA.checkIfPasswordInputRequired();
+                    }
+                }else{
+                    AGORA.setPricingOptionIdSelection("");
+                }
+                AGORA.viewModel.displayAutoRenewPaymentSection();
+            },
+            setPricingOptionIdSelection: function(pricingOptionId) {
+                document.getElementById("__selectedOfferPricingOptionId__").value=pricingOptionId;
+                if(pricingOptionId != "") {
+                    AGORA.viewModel.selectedOfferPricingOptionId(pricingOptionId);
+
+                    if(pricingOptionId in AGORA.shippingOptionMap){
+                        AGORA.viewModel.selectedOfferShippingOptionId(AGORA.shippingOptionMap[pricingOptionId]);
+                    }
+                }
+            },
+            registerPricingOptionId: function(choiceId, pricingOptionId) {
+                AGORA.pricingOptionMap[choiceId]=pricingOptionId;
+            },
+            registerShippingOptionId: function(pricingOptionId, shippingOptionId) {
+                AGORA.shippingOptionMap[pricingOptionId]=shippingOptionId;
+            }
+        });
+
+    </script>
+
+
+    <input id="__selectedOfferPricingOptionId__" name="formComponentsMap['offer'].pricingOptionId" type="hidden" value="">
+
+
+        <div data-bind="visible: isChoiceSupported(6883139)" class="choice">
+  <label>
+          <h3 class="choiceName item_1">
+              <div class="row small_pad border_bottom">
+              <div class="columns medium-1 small-2">
+        <input type="radio" name="formComponentsMap['offer'].choiceId" value="6883139" id="6bot" class="enlarge" data-bind="checked: selectedOfferChoiceId" onclick="AGORA.setPricingOptionIdIfHidden(6883139);">
+
+</div>
+              <div class="columns medium-4 hide-for-small">
+                  <img src="https://d13p2xj50zkyqm.cloudfront.net/promos/health/assets/orderform_UPDATE/AstaVida_6Bottles.png" alt="6 bottles" class="image_center" width="100%" style="margin-top:-2em;">
+              </div>
+              <div class="columns medium-4 small-12 border_sides">
+                      6 Bottles of<br><em>AstaVida</em>
+
+          </div>
+              <div class="columns medium-3 small-12">
+                <p class="price_desc"><span class="ltgreen">$299</span> + Free Shipping</p><p>
+          </p></div>
+</div>
+          </h3>
+          <div class="hidethis">
+          <p class="choiceDescription">
+                      6 bottles, autoship, $299 + free shipping
+
+          </p>
+
+
+
+
+      <table class="priceOption">
+          <tbody><tr>
+              <td width="18" rowspan="2" class="radioCell">
+            <script language="javascript">
+                AGORA.registerPricingOptionId(6883139, 6882280);
+            </script>
+
+
+
+              </td>
+              <td width="180">&nbsp;</td>
+
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <table class="pricingMatrix">
+                      <colgroup><col width="215">
+                      <col>
+                      </colgroup><thead>
+                          <tr>
+                              <th class="labelCell">Our Unit Price</th>
+                              <th class="labelCell">Quantity</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+  <tr>
+      <td class="dataCell">
+          		USD $
+			49.83
+
+      </td>
+      <td class="dataCell">
+          		6 or more
+
+      </td>
+  </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody></table>
+
+  <!-- Quantity box -->
+      <div class="buttonsArea"> <span class="label">Quantity: </span>
+    <input name="formComponentsMap['offer'].selectedPricingOptionMetaDataMap[6882280].quantity" type="text" value="6" maxlength="5">
+      </div>
+
+  <!-- End Quantity box -->
+
+  <!-- Shipping Options ----------------------------------------------------------------- -->
+
+  <h2 class="sectionTitle">Shipping Options</h2>
+  <p class="sectionDescription">[-- Insert introduction text for the shipping Options --]</p>
+
+  <table class="priceOption" style="display:none;">
+      <tbody>
+          <tr>
+              <td colspan="2">
+                  <table class="pricingMatrix">
+                      <colgroup><col>
+                      </colgroup><thead>
+                          <tr>
+                              <th class="shippingInfoTitle">Shipping Options</th>
+                              <th class="shippingInfoTitle">Quantity</th>
+                              <th class="shippingInfoTitle">Price</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+  <tr>
+      <td class="shippingCell">
+                          Standard Shipping
+
+      </td>
+      <td class="shippingPrice">
+                  6 or more
+
+      </td>
+      <td class="shippingPrice">
+                  USD $
+
+                  0.00
+
+      </td>
+  </tr>
+                          <tr>
+                              <td class="shippingCellOption">
+                                  Shipping Info.
+                              </td>
+                              <td width="180" class="shippingCellOption" colspan="2">
+            <script type="text/javascript">AGORA.registerShippingOptionId(6882280, 8);</script>
+
+            <input name="formComponentsMap['shippingOption'].shippingOptionFormComponentChoiceLinesMap[6882280].shippingOptionId" type="hidden" value="8">
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+
+  <!-- End Shipping Options ----------------------------------------------------------------- -->
+
+
+      </div>
+  </label>
+        </div>
+
+        <div data-bind="visible: isChoiceSupported(6883140)" class="choice">
+  <label>
+<h3 class="choiceName item_2">
+              <div class="row small_pad border_bottom">
+              <div class="columns medium-1 small-2">
+        <input type="radio" name="formComponentsMap['offer'].choiceId" value="6883140" id="3bot" class="enlarge" data-bind="checked: selectedOfferChoiceId" onclick="AGORA.setPricingOptionIdIfHidden(6883140);">
+
+              </div>
+              <div class="columns medium-4 hide-for-small">
+                  <img src="https://d13p2xj50zkyqm.cloudfront.net/promos/health/assets/orderform_UPDATE/AstaVida_3Bottles.png" alt="3 bottles" class="image_center" width="100%" style="margin-top:-2em;">
+              </div>
+              <div class="columns medium-4 small-12 border_sides">
+
+                      3 Bottles of<br><em>AstaVida</em>
+
+     </div>
+              <div class="columns medium-3 small-12">
+                <p class="price_desc"><span class="ltgreen">$159</span> + Free Shipping</p><p>
+        </p></div>
+</div>
+          </h3>
+<div class="hidethis">
+          <p class="choiceDescription">
+                      3 bottles, autoship, $59 + free shipping
+
+          </p>
+
+
+
+
+      <table class="priceOption">
+          <tbody><tr>
+              <td width="18" rowspan="2" class="radioCell">
+            <script language="javascript">
+                AGORA.registerPricingOptionId(6883140, 6882281);
+            </script>
+
+
+
+              </td>
+              <td width="180">&nbsp;</td>
+
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <table class="pricingMatrix">
+                      <colgroup><col width="215">
+                      <col>
+                      </colgroup><thead>
+                          <tr>
+                              <th class="labelCell">Our Unit Price</th>
+                              <th class="labelCell">Quantity</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+  <tr>
+      <td class="dataCell">
+          		USD $
+			53.00
+
+      </td>
+      <td class="dataCell">
+          		3 or more
+
+      </td>
+  </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody></table>
+
+  <!-- Quantity box -->
+      <div class="buttonsArea"> <span class="label">Quantity: </span>
+    <input name="formComponentsMap['offer'].selectedPricingOptionMetaDataMap[6882281].quantity" type="text" value="3" maxlength="5">
+      </div>
+
+  <!-- End Quantity box -->
+
+  <!-- Shipping Options ----------------------------------------------------------------- -->
+
+  <h2 class="sectionTitle">Shipping Options</h2>
+  <p class="sectionDescription">[-- Insert introduction text for the shipping Options --]</p>
+
+  <table class="priceOption" style="display:none;">
+      <tbody>
+          <tr>
+              <td colspan="2">
+                  <table class="pricingMatrix">
+                      <colgroup><col>
+                      </colgroup><thead>
+                          <tr>
+                              <th class="shippingInfoTitle">Shipping Options</th>
+                              <th class="shippingInfoTitle">Quantity</th>
+                              <th class="shippingInfoTitle">Price</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+
+
+      <tr>
+          <td class="shippingCell">
+
+          </td>
+          <td class="shippingPrice">
+                      3 or more
+
+          </td>
+          <td class="shippingPrice">
+                      USD $
+
+                      0.00
+
+          </td>
+      </tr>
+
+                          <tr>
+                              <td class="shippingCellOption">
+                                  Shipping Info.
+                              </td>
+                              <td width="180" class="shippingCellOption" colspan="2">
+            <script type="text/javascript">AGORA.registerShippingOptionId(6882281, 8);</script>
+
+            <input name="formComponentsMap['shippingOption'].shippingOptionFormComponentChoiceLinesMap[6882281].shippingOptionId" type="hidden" value="8">
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+
+  <!-- End Shipping Options ----------------------------------------------------------------- -->
+
+      </div>
+  </label>
+        </div>
+
+        <div data-bind="visible: isChoiceSupported(6883141)" class="choice">
+  <label>
+       <h3 class="choiceName item_3">
+              <div class="row small_pad">
+              <div class="columns medium-1 small-2">
+        <input type="radio" name="formComponentsMap['offer'].choiceId" value="6883141" id="1bot" class="enlarge" data-bind="checked: selectedOfferChoiceId" onclick="AGORA.setPricingOptionIdIfHidden(6883141);">
+
+              </div>
+              <div class="columns medium-4 hide-for-small">
+                  <img src="https://d13p2xj50zkyqm.cloudfront.net/promos/health/assets/orderform_UPDATE/AstaVida_1Bottle.png" alt="1 bottle" class="image_center" width="50%" style="margin-top:-2em;">
+              </div>
+              <div class="columns medium-4 small-12 border_sides">
+                      1 Bottle of<br><em>AstaVida</em>
+
+          </div>
+              <div class="columns medium-3 small-12">
+                <p class="price_desc"><span class="ltgreen">$59</span> + Free Shipping</p><p>
+          </p></div>
+</div>
+          </h3>  <div class="hidethis">
+          <p class="choiceDescription">
+                      1 bottle, autoship, $59 + free shipping
+
+          </p>
+
+
+
+
+      <table class="priceOption">
+          <tbody><tr>
+              <td width="18" class="radioCell">            <script language="javascript">
+                AGORA.registerPricingOptionId(6883141, 6882282);
+            </script>
+
+
+
+</td>
+              <td width="180">
+                  <span class="label">Price:</span>
+                  <span class="data">		USD $
+			59.00
+</span>
+              </td>
+
+          </tr>
+      </tbody></table>
+
+  <!-- Quantity box -->
+      <div class="buttonsArea"> <span class="label">Quantity: </span>
+    <input name="formComponentsMap['offer'].selectedPricingOptionMetaDataMap[6882282].quantity" type="text" value="1" maxlength="5">
+      </div>
+
+  <!-- End Quantity box -->
+
+  <!-- Shipping Options ----------------------------------------------------------------- -->
+
+  <h2 class="sectionTitle">Shipping Options</h2>
+  <p class="sectionDescription">[-- Insert introduction text for the shipping Options --]</p>
+
+  <table class="priceOption" style="display:none;">
+      <tbody>
+          <tr>
+              <td colspan="2">
+                  <table class="pricingMatrix">
+                      <colgroup><col>
+                      </colgroup><thead>
+                          <tr>
+                              <th class="shippingInfoTitle">Shipping Options</th>
+                              <th class="shippingInfoTitle">Quantity</th>
+                              <th class="shippingInfoTitle">Price</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+
+  <tr>
+      <td class="shippingCell">
+
+      </td>
+      <td class="shippingPrice">
+                  1 or more
+
+      </td>
+      <td class="shippingPrice">
+                  USD $
+
+                  0.00
+
+      </td>
+  </tr>
+                          <tr>
+                              <td class="shippingCellOption">
+                                  Shipping Info.
+                              </td>
+                              <td width="180" class="shippingCellOption" colspan="2">
+            <script type="text/javascript">AGORA.registerShippingOptionId(6882282, 8);</script>
+
+            <input name="formComponentsMap['shippingOption'].shippingOptionFormComponentChoiceLinesMap[6882282].shippingOptionId" type="hidden" value="8">
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+
+  <!-- End Shipping Options ----------------------------------------------------------------- -->
+
+
+      </div>
+  </label>
+        </div>
+
+
+
+<p class="chooseInfo chooseInfo--sol">Step 2: Fill Out Your Information</p>
+
+
+<div class="clear" style="margin-top:20px"></div>
+
+
+
+<!-- END Enter Sales Copy Here -->
+
+
+    <input name="urlQueryString" id="urlQueryString" type="hidden" value="pageNumber=2">
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">First Name:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].firstName" type="text" value="" maxlength="20" class="form-control" id="firstName">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Last Name:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].lastName" type="text" value="" maxlength="30" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Email:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].emailAddress" type="text" value="" maxlength="254" class="form-control" id="__billingEmailAddress__">      </div>
+      <div class="clear"></div>
+  </div>
+
+
+    <div data-bind="" class="form-group">
+      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">Re-Type Email:</span>
+          </div>
+          <div class="field_input">
+<input name="formComponentsMap['order'].confirmEmailAddress" type="text" value="" maxlength="254" class="form-control">          </div>
+          <div class="clear"></div>
+      </div>
+    </div>
+
+
+
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Address 1:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].addressLine1" type="text" value="" maxlength="40" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required" style="color:#FFF;">*</span><span class="field_text">Address 2:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].addressLine2" type="text" value="" maxlength="40" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">City:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].city" type="text" value="" maxlength="35" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+        <div id="__stateInputSection__" class="form-group">      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">State:</span>
+          </div>
+          <div class="field_input">
+        <input id="whichStateInput" name="formComponentsMap['order'].whichStateInput" type="hidden" value="dropDown" class="form-control">
+        <span id="stateSelect" data-bind=""><select name="formComponentsMap['order'].stateId" onchange="AGORA.__onStateChange__($(this).find('option:selected').text());" class="form-control input-sm"><option value="">Select A State</option>undefined<option value="1">AA - ARMED FORCES</option><option value="4">AE - ARMED FORCES</option><option value="5">AK - ALASKA</option><option value="6">AL - ALABAMA</option><option value="7">AP - APO/FPO</option><option value="8">AR - ARKANSAS</option><option value="9">AS - AMERICAN SAMOA</option><option value="10">AZ - ARIZONA</option><option value="12">CA - CALIFORNIA</option><option value="13">CM - N MARIANA IS.</option><option value="14">CO - COLORADO</option><option value="15">CT - CONNECTICUT</option><option value="16">CZ - CANAL ZONE</option><option value="17">DC - WASHINGTON D C</option><option value="18">DE - DELAWARE</option><option value="19">FL - FLORIDA</option><option value="20">GA - GEORGIA</option><option value="21">GU - GUAM</option><option value="22">HI - HAWAII</option><option value="23">HO - HOUSE</option><option value="24">IA - IOWA</option><option value="25">ID - IDAHO</option><option value="26">IL - ILLINOIS</option><option value="27">IN - INDIANA</option><option value="28">KS - KANSAS</option><option value="29">KY - KENTUCKY</option><option value="30">LA - LOUISIANA</option><option value="31">MA - MASSACHUSETTS</option><option value="33">MD - MARYLAND</option><option value="34">ME - MAINE</option><option value="35">MI - MICHIGAN</option><option value="36">MN - MINNESOTA</option><option value="37">MO - MISSOURI</option><option value="39">MP - SAIPAN</option><option value="40">MS - MISSISSIPPI</option><option value="41">MT - MONTANA</option><option value="43">NC - NORTH CAROLINA</option><option value="44">ND - NORTH DAKOTA</option><option value="45">NE - NEBRASKA</option><option value="46">NH - NEW HAMPSHIRE</option><option value="47">NJ - NEW JERSEY</option><option value="49">NM - NEW MEXICO</option><option value="55">NV - NEVADA</option><option value="56">NY - NEW YORK</option><option value="57">OH - OHIO</option><option value="58">OK - OKLAHOMA</option><option value="60">OR - OREGON</option><option value="61">PA - PENNSYLVANIA</option><option value="64">PR - PUERTO RICO</option><option value="65">PW - PALAU</option><option value="68">RI - RHODE ISLAND</option><option value="70">SC - SOUTH CAROLINA</option><option value="71">SD - SOUTH DAKOTA</option><option value="74">TN - TENNESSEE</option><option value="75">TX - TEXAS</option><option value="76">UT - UTAH</option><option value="77">VA - VIRGINIA</option><option value="78">VI - VIRGIN ISLANDS</option><option value="80">VT - VERMONT</option><option value="82">WA - WASHINGTON</option><option value="83">WI - WISCONSIN</option><option value="84">WV - WEST VIRGINIA</option><option value="85">WY - WYOMING</option></select></span>
+
+    <input type="text" data-bind="value:AGORA.viewModel.billingStateName, visible: false " class="form-control" style="display: none;">
+          </div>
+          <div class="clear"></div>
+      </div>
+</div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Zip/Postal Code:</span>
+      </div>
+      <div class="field_input">
+    <input id="__billToZipCode" name="formComponentsMap['order'].postalCode" type="text" value="" maxlength="9" class="form-control">
+      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+<div class="field_name">
+          <span class="required">*</span><span class="field_text">Country:</span>
+      </div>
+      <div class="field_input">
+
+    <script type="text/javascript">
+    //<![CDATA[
+        Namespace('AGORA', {
+            __onCountryChange__: function(countryId, countryName) {
+                var stateSelect = '';
+                var whichStateInput = '';
+                var stateOptionsArray = new Array();
+                var postalCodeRequiredMap = new Object();
+	            if(countryId != null) {
+	            	//gather country iso2 code:
+					$.ajax({
+					     url: "/SOL_astavida1bottle_0418/WSOLV301/getCountryISO2Code",
+					     data: {countryId: countryId},
+
+					     success: function(data) {
+					     	AGORA.viewModel.iso2CountryCode(data);
+					     	console.log ("Country Code is now:  " + AGORA.viewModel.iso2CountryCode() + "\nLocale is now: en-" + AGORA.viewModel.iso2CountryCode());
+					     	if (window._modoModal) {
+					     		window._modoModal.updateModal({locale: "en-" + data});
+					     	}
+					     },
+					     async: false   // Need to make this ajax call synchronous otherwise we will require callbacks!
+					});
+				}
+
+
+                    AGORA.viewModel.billingCountryId(countryId);
+                    AGORA.viewModel.billingCountryName(countryName);
+
+                    var stateRequiredIndicator = document.getElementById('stateRequiredIndicator');
+                    var stateInputSection = $('#__stateInputSection__');
+                    var postcodeEverywhereSpan = document.getElementById('__billToPostcodeEverywhereSpan__');
+
+
+                        postalCodeRequiredMap["1"] = true;
+
+                AGORA.__onStateChange__();
+                    stateOptionsArray[1] += '<option value="1"  >AA - ARMED FORCES</option>';
+                    stateOptionsArray[38] += '<option value="2"  >AB - ALBERTA</option>';
+                    stateOptionsArray[10] += '<option value="124"  >ABA - BUENOS AIRES</option>';
+                    stateOptionsArray[30] += '<option value="148"  >AC - Acre</option>';
+                    stateOptionsArray[10] += '<option value="125"  >ACA - CATAMARCA</option>';
+                    stateOptionsArray[10] += '<option value="126"  >ACB - CORDOBA</option>';
+                    stateOptionsArray[10] += '<option value="127"  >ACF - CIUDAD AUTO BA</option>';
+                    stateOptionsArray[10] += '<option value="128"  >ACH - CHACO</option>';
+                    stateOptionsArray[10] += '<option value="129"  >ACR - CORRIENTES</option>';
+                    stateOptionsArray[10] += '<option value="130"  >ACT - CHUBUT</option>';
+                    stateOptionsArray[14] += '<option value="3"  >ACT - AUS CAPITAL TER</option>';
+                    stateOptionsArray[1] += '<option value="4"  >AE - ARMED FORCES</option>';
+                    stateOptionsArray[10] += '<option value="131"  >AER - ENTRE RIOS</option>';
+                    stateOptionsArray[10] += '<option value="132"  >AFO - FORMOSA</option>';
+                    stateOptionsArray[10] += '<option value="133"  >AJY - JUJUY</option>';
+                    stateOptionsArray[1] += '<option value="5"  >AK - ALASKA</option>';
+                    stateOptionsArray[1] += '<option value="6"  >AL - ALABAMA</option>';
+                    stateOptionsArray[30] += '<option value="149"  >AL - Alagoas</option>';
+                    stateOptionsArray[10] += '<option value="134"  >ALP - LA PAMPA</option>';
+                    stateOptionsArray[10] += '<option value="135"  >ALR - LA RIOJA</option>';
+                    stateOptionsArray[30] += '<option value="150"  >AM - Amazonas</option>';
+                    stateOptionsArray[10] += '<option value="136"  >AMI - MISIONES</option>';
+                    stateOptionsArray[10] += '<option value="137"  >AMZ - MENDOZA</option>';
+                    stateOptionsArray[99] += '<option value="87"  >ANDAMAN AND NICOBAR ISLANDS</option>';
+                    stateOptionsArray[10] += '<option value="138"  >ANQ - NEUQUEN</option>';
+                    stateOptionsArray[30] += '<option value="151"  >AP - Amapá</option>';
+                    stateOptionsArray[99] += '<option value="88"  >ANDHRA PRADESH</option>';
+                    stateOptionsArray[1] += '<option value="7"  >AP - APO/FPO</option>';
+                    stateOptionsArray[1] += '<option value="8"  >AR - ARKANSAS</option>';
+                    stateOptionsArray[99] += '<option value="89"  >ARUNACHAL PRADESH</option>';
+                    stateOptionsArray[10] += '<option value="139"  >ARN - RÍO NEGRO</option>';
+                    stateOptionsArray[99] += '<option value="90"  >ASSAM</option>';
+                    stateOptionsArray[1] += '<option value="9"  >AS - AMERICAN SAMOA</option>';
+                    stateOptionsArray[10] += '<option value="140"  >ASA - SALTA</option>';
+                    stateOptionsArray[10] += '<option value="141"  >ASC - SANTA CRUZ</option>';
+                    stateOptionsArray[10] += '<option value="142"  >ASE - SANT DEL ESTERO</option>';
+                    stateOptionsArray[10] += '<option value="143"  >ASF - SANTA FE</option>';
+                    stateOptionsArray[10] += '<option value="144"  >ASJ - SAN JUAN</option>';
+                    stateOptionsArray[10] += '<option value="145"  >ASL - SAN LUIS</option>';
+                    stateOptionsArray[10] += '<option value="146"  >ATF - TIERRA DEL FUEG</option>';
+                    stateOptionsArray[10] += '<option value="147"  >ATU - TUCUMAN</option>';
+                    stateOptionsArray[1] += '<option value="10"  >AZ - ARIZONA</option>';
+                    stateOptionsArray[30] += '<option value="152"  >BA - Bahia</option>';
+                    stateOptionsArray[38] += '<option value="11"  >BC - BRIT. COLUMBIA</option>';
+                    stateOptionsArray[99] += '<option value="91"  >BIHAR</option>';
+                    stateOptionsArray[1] += '<option value="12"  >CA - CALIFORNIA</option>';
+                    stateOptionsArray[30] += '<option value="153"  >CE - Ceará</option>';
+                    stateOptionsArray[99] += '<option value="92"  >CHHATTISGARH</option>';
+                    stateOptionsArray[99] += '<option value="93"  >CHANDIGARH</option>';
+                    stateOptionsArray[1] += '<option value="13"  >CM - N MARIANA IS.</option>';
+                    stateOptionsArray[1] += '<option value="14"  >CO - COLORADO</option>';
+                    stateOptionsArray[1] += '<option value="15"  >CT - CONNECTICUT</option>';
+                    stateOptionsArray[1] += '<option value="16"  >CZ - CANAL ZONE</option>';
+                    stateOptionsArray[1] += '<option value="17"  >DC - WASHINGTON D C</option>';
+                    stateOptionsArray[99] += '<option value="94"  >DAMAN AND DIU</option>';
+                    stateOptionsArray[1] += '<option value="18"  >DE - DELAWARE</option>';
+                    stateOptionsArray[30] += '<option value="154"  >DF - Distrito Federal</option>';
+                    stateOptionsArray[99] += '<option value="95"  >NEW DELHI</option>';
+                    stateOptionsArray[99] += '<option value="96"  >DADRA AND NAGAR HAVELI</option>';
+                    stateOptionsArray[30] += '<option value="155"  >ES - Espírito Santo</option>';
+                    stateOptionsArray[1] += '<option value="19"  >FL - FLORIDA</option>';
+                    stateOptionsArray[1] += '<option value="20"  >GA - GEORGIA</option>';
+                    stateOptionsArray[99] += '<option value="97"  >GOA</option>';
+                    stateOptionsArray[99] += '<option value="98"  >GUJARAT</option>';
+                    stateOptionsArray[30] += '<option value="156"  >GO - Goiás</option>';
+                    stateOptionsArray[1] += '<option value="21"  >GU - GUAM</option>';
+                    stateOptionsArray[1] += '<option value="22"  >HI - HAWAII</option>';
+                    stateOptionsArray[1] += '<option value="23"  >HO - HOUSE</option>';
+                    stateOptionsArray[99] += '<option value="99"  >HIMACHAL PRADESH</option>';
+                    stateOptionsArray[99] += '<option value="100"  >HARYANA</option>';
+                    stateOptionsArray[1] += '<option value="24"  >IA - IOWA</option>';
+                    stateOptionsArray[1] += '<option value="25"  >ID - IDAHO</option>';
+                    stateOptionsArray[1] += '<option value="26"  >IL - ILLINOIS</option>';
+                    stateOptionsArray[1] += '<option value="27"  >IN - INDIANA</option>';
+                    stateOptionsArray[99] += '<option value="101"  >JHARKHAND</option>';
+                    stateOptionsArray[99] += '<option value="102"  >JAMMU AND KASHMIR</option>';
+                    stateOptionsArray[99] += '<option value="103"  >KARNATAKA</option>';
+                    stateOptionsArray[99] += '<option value="104"  >KERALA</option>';
+                    stateOptionsArray[1] += '<option value="28"  >KS - KANSAS</option>';
+                    stateOptionsArray[1] += '<option value="29"  >KY - KENTUCKY</option>';
+                    stateOptionsArray[1] += '<option value="30"  >LA - LOUISIANA</option>';
+                    stateOptionsArray[99] += '<option value="105"  >LAKSHADWEEP</option>';
+                    stateOptionsArray[30] += '<option value="157"  >MA - Maranhão</option>';
+                    stateOptionsArray[1] += '<option value="31"  >MA - MASSACHUSETTS</option>';
+                    stateOptionsArray[38] += '<option value="32"  >MB - MANITOBA</option>';
+                    stateOptionsArray[1] += '<option value="33"  >MD - MARYLAND</option>';
+                    stateOptionsArray[1] += '<option value="34"  >ME - MAINE</option>';
+                    stateOptionsArray[30] += '<option value="158"  >MG - Minas Gerais</option>';
+                    stateOptionsArray[99] += '<option value="106"  >MAHARASHTRA</option>';
+                    stateOptionsArray[1] += '<option value="35"  >MI - MICHIGAN</option>';
+                    stateOptionsArray[99] += '<option value="107"  >MEGHALAYA</option>';
+                    stateOptionsArray[99] += '<option value="108"  >MANIPUR</option>';
+                    stateOptionsArray[1] += '<option value="36"  >MN - MINNESOTA</option>';
+                    stateOptionsArray[1] += '<option value="37"  >MO - MISSOURI</option>';
+                    stateOptionsArray[38] += '<option value="38"  >MP - NORTHERN MARIAN</option>';
+                    stateOptionsArray[1] += '<option value="39"  >MP - SAIPAN</option>';
+                    stateOptionsArray[99] += '<option value="109"  >MADHYA PRADESH</option>';
+                    stateOptionsArray[30] += '<option value="159"  >MS - Mato Grosso do Sul</option>';
+                    stateOptionsArray[1] += '<option value="40"  >MS - MISSISSIPPI</option>';
+                    stateOptionsArray[1] += '<option value="41"  >MT - MONTANA</option>';
+                    stateOptionsArray[30] += '<option value="160"  >MT - Mato Grosso</option>';
+                    stateOptionsArray[99] += '<option value="110"  >MIZORAM</option>';
+                    stateOptionsArray[38] += '<option value="42"  >NB - NEW BRUNSWICK</option>';
+                    stateOptionsArray[1] += '<option value="43"  >NC - NORTH CAROLINA</option>';
+                    stateOptionsArray[1] += '<option value="44"  >ND - NORTH DAKOTA</option>';
+                    stateOptionsArray[1] += '<option value="45"  >NE - NEBRASKA</option>';
+                    stateOptionsArray[1] += '<option value="46"  >NH - NEW HAMPSHIRE</option>';
+                    stateOptionsArray[1] += '<option value="47"  >NJ - NEW JERSEY</option>';
+                    stateOptionsArray[38] += '<option value="48"  >NL - NEWFOUNDLAND</option>';
+                    stateOptionsArray[99] += '<option value="112"  >NAGALAND</option>';
+                    stateOptionsArray[1] += '<option value="49"  >NM - NEW MEXICO</option>';
+                    stateOptionsArray[38] += '<option value="50"  >NS - NOVA SCOTIA</option>';
+                    stateOptionsArray[14] += '<option value="51"  >NSW - NEW SOUTH WALES</option>';
+                    stateOptionsArray[14] += '<option value="52"  >NT - NORTHERN TERR</option>';
+                    stateOptionsArray[38] += '<option value="53"  >NT - N.W. TERRITORY</option>';
+                    stateOptionsArray[38] += '<option value="54"  >NU - NUNAVUT TERR.</option>';
+                    stateOptionsArray[1] += '<option value="55"  >NV - NEVADA</option>';
+                    stateOptionsArray[1] += '<option value="56"  >NY - NEW YORK</option>';
+                    stateOptionsArray[1] += '<option value="57"  >OH - OHIO</option>';
+                    stateOptionsArray[1] += '<option value="58"  >OK - OKLAHOMA</option>';
+                    stateOptionsArray[38] += '<option value="59"  >ON - ONTARIO</option>';
+                    stateOptionsArray[1] += '<option value="60"  >OR - OREGON</option>';
+                    stateOptionsArray[99] += '<option value="113"  >ORISSA</option>';
+                    stateOptionsArray[30] += '<option value="161"  >PA - Pará</option>';
+                    stateOptionsArray[1] += '<option value="61"  >PA - PENNSYLVANIA</option>';
+                    stateOptionsArray[30] += '<option value="162"  >PB - Paraíba</option>';
+                    stateOptionsArray[99] += '<option value="114"  >PUNJAB</option>';
+                    stateOptionsArray[30] += '<option value="163"  >PE - Pernambuco</option>';
+                    stateOptionsArray[38] += '<option value="62"  >PE - PR. EDWARD IS.</option>';
+                    stateOptionsArray[30] += '<option value="164"  >PI - Piauí</option>';
+                    stateOptionsArray[38] += '<option value="63"  >PQ - QUEBEC</option>';
+                    stateOptionsArray[1] += '<option value="64"  >PR - PUERTO RICO</option>';
+                    stateOptionsArray[30] += '<option value="165"  >PR - Paraná</option>';
+                    stateOptionsArray[1] += '<option value="65"  >PW - PALAU</option>';
+                    stateOptionsArray[99] += '<option value="115"  >PUDUCHERRY</option>';
+                    stateOptionsArray[38] += '<option value="66"  >QC - QUEBEC</option>';
+                    stateOptionsArray[14] += '<option value="67"  >QLD - QUEENSLAND</option>';
+                    stateOptionsArray[1] += '<option value="68"  >RI - RHODE ISLAND</option>';
+                    stateOptionsArray[99] += '<option value="116"  >RAJASTHAN</option>';
+                    stateOptionsArray[30] += '<option value="166"  >RJ - Rio de Janeiro</option>';
+                    stateOptionsArray[30] += '<option value="167"  >RN - Rio Grande do Norte</option>';
+                    stateOptionsArray[30] += '<option value="168"  >RO - Rondônia</option>';
+                    stateOptionsArray[30] += '<option value="169"  >RR - Roraima</option>';
+                    stateOptionsArray[30] += '<option value="170"  >RS - Rio Grande do Sul</option>';
+                    stateOptionsArray[14] += '<option value="69"  >SA - SOUTH AUSTRALIA</option>';
+                    stateOptionsArray[1] += '<option value="70"  >SC - SOUTH CAROLINA</option>';
+                    stateOptionsArray[30] += '<option value="171"  >SC - Santa Catarina</option>';
+                    stateOptionsArray[1] += '<option value="71"  >SD - SOUTH DAKOTA</option>';
+                    stateOptionsArray[30] += '<option value="172"  >SE - Sergipe</option>';
+                    stateOptionsArray[99] += '<option value="117"  >SIKKIM</option>';
+                    stateOptionsArray[38] += '<option value="72"  >SK - SASKATCHEWAN</option>';
+                    stateOptionsArray[30] += '<option value="173"  >SP - São Paulo</option>';
+                    stateOptionsArray[14] += '<option value="73"  >TAS - TASMANIA</option>';
+                    stateOptionsArray[99] += '<option value="123"  >TELANGANA</option>';
+                    stateOptionsArray[1] += '<option value="74"  >TN - TENNESSEE</option>';
+                    stateOptionsArray[99] += '<option value="118"  >TAMIL NADU</option>';
+                    stateOptionsArray[30] += '<option value="174"  >TO - Tocantins</option>';
+                    stateOptionsArray[99] += '<option value="119"  >TRIPURA</option>';
+                    stateOptionsArray[1] += '<option value="75"  >TX - TEXAS</option>';
+                    stateOptionsArray[99] += '<option value="120"  >UTTARAKHAND</option>';
+                    stateOptionsArray[99] += '<option value="121"  >UTTAR PRADESH</option>';
+                    stateOptionsArray[1] += '<option value="76"  >UT - UTAH</option>';
+                    stateOptionsArray[1] += '<option value="77"  >VA - VIRGINIA</option>';
+                    stateOptionsArray[1] += '<option value="78"  >VI - VIRGIN ISLANDS</option>';
+                    stateOptionsArray[14] += '<option value="79"  >VIC - VICTORIA</option>';
+                    stateOptionsArray[1] += '<option value="80"  >VT - VERMONT</option>';
+                    stateOptionsArray[14] += '<option value="81"  >WA - WESTERN AUS</option>';
+                    stateOptionsArray[1] += '<option value="82"  >WA - WASHINGTON</option>';
+                    stateOptionsArray[99] += '<option value="122"  >WEST BENGAL</option>';
+                    stateOptionsArray[1] += '<option value="83"  >WI - WISCONSIN</option>';
+                    stateOptionsArray[1] += '<option value="84"  >WV - WEST VIRGINIA</option>';
+                    stateOptionsArray[1] += '<option value="85"  >WY - WYOMING</option>';
+                    stateOptionsArray[38] += '<option value="86"  >YT - YUKON TERR.</option>';
+
+
+                if (stateOptionsArray[countryId] != undefined && stateOptionsArray[countryId] != 'UNSUPPORTED') {
+                    stateSelect = '<select name="formComponentsMap[\'order\'].stateId" onchange="AGORA.__onStateChange__($(this).find(\'option:selected\').text());" class="form-control input-sm" class="form_input">' +
+                        '<option value="">Select A State</option>'+
+                        stateOptionsArray[countryId] +
+                        '</select>';
+                    whichStateInput = 'dropDown';
+                    if(stateRequiredIndicator) stateRequiredIndicator.style.display = 'inline';
+                    stateInputSection.css('display', '');
+                } else {
+                    AGORA.__onStateChange__('');
+                    stateSelect = '<input name="formComponentsMap[\'order\'].stateName" type="text" value="" data-bind="" onchange="AGORA.__onStateChange__($(this).val());" class="form_input" class="form-control"/>';
+                    whichStateInput = 'textBox';
+                    if(stateRequiredIndicator) stateRequiredIndicator.style.display = 'none';
+
+                    if (stateOptionsArray[countryId] == 'UNSUPPORTED' && stateInputSection.size() > 0) {
+                        stateInputSection.css('display', 'none');
+                    } else {
+                        stateInputSection.css('display', '');
+                    }
+                }
+
+                    var postalCodeRequiredIndicator = document.getElementById('postalCodeRequiredIndicator');
+
+                if(postalCodeRequiredMap[countryId] && postalCodeRequiredIndicator) {
+                    postalCodeRequiredIndicator.style.display = 'inline';
+                } else if (postalCodeRequiredIndicator) {
+                    postalCodeRequiredIndicator.style.display = 'none';
+                }
+
+                    if(document.getElementById('stateSelect') != null) {
+                        document.getElementById('stateSelect').innerHTML = stateSelect;
+                        document.getElementById('whichStateInput').value = whichStateInput;
+                    }
+
+                    if (whichStateInput == 'textBox' && false) {
+                        $('#__stateInputSection__').css('display', 'none');
+                    } else {
+                        $('#__stateInputSection__').css('display', '');
+                    }
+
+                // Argentina:
+                if(document.getElementById('argentinaTaxFieldsBlock') != null) {
+                    if(countryId && countryId != "10") {
+                        document.getElementById('argentinaTaxFieldsBlock').style.display = 'none';
+                    } else {
+                        document.getElementById('argentinaTaxFieldsBlock').style.display = 'block';
+                    }
+                }
+
+                // Country Tax Id (Brazil/Argentina):
+
+                // EU-VAT:
+                    checkIfCountryRequiresEuVat(countryId, "billing");
+
+            },
+            __onStateChange__: function(stateName) {
+                    AGORA.viewModel.billingStateName(stateName);
+            }
+        });
+    //]]>
+
+    </script>
+
+        <select id="__billingCountrySelect__" name="formComponentsMap['order'].countryId" class="form_input" data-bind="" onchange="AGORA.__onCountryChange__($(this).val(), $(this).find('option:selected').text());">
+
+                <option value="1" selected="selected">UNITED STATES</option>
+        </select>
+
+        <input type="text" data-bind="value:AGORA.viewModel.billingCountryName, visible: false " class="form-control" style="display: none;">
+
+        <script type="text/javascript">$(document).ready(function(){AGORA.__onCountryChange__($('#__billingCountrySelect__').val(), $('#__billingCountrySelect__').find('option:selected').text())});</script>
+      </div>
+      <div class="clear"></div>
+  </div>
+<div class="autorenew">
+<p>*International Buyers. Please note, we do not ship outside the United States, if you order <em>AstaVida</em> your order will not be fullfilled.</p>
+</div>
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Phone:</span>
+      </div>
+      <div class="field_input">
+    <input name="formComponentsMap['order'].phoneNumber" type="text" data-bind="" value="" maxlength="25" class="form-control">
+      </div>
+      <div class="clear"></div>
+  </div>
+
+
+  <div class="hidethis">
+      Fax:
+
+    <input name="formComponentsMap['order'].faxNumber" type="text" data-bind="" value="" maxlength="25" class="form-control">
+
+
+    <input name="formComponentsMap['order'].hasAgreedToBeContactedByAffiliates" type="checkbox" value="true" class="check">
+    <input type="hidden" name="_formComponentsMap['order'].hasAgreedToBeContactedByAffiliates">
+  </div>
+
+  <div class="clear"></div>
+
+  <h5 class="shipping_toggle">
+    <input name="formComponentsMap['order'].hasSameShipToAddress" type="checkbox" value="true" data-bind="click: toggleShippingAddressVisibility" checked="checked" class="check">
+    <input type="hidden" name="_formComponentsMap['order'].hasSameShipToAddress">
+
+
+          <span>Uncheck to ship to a different address.</span>
+  </h5>
+
+<div class="autorenew">
+<p><strong>Billing Terms:</strong> By paying with your credit card, you’re enrolled in our FREE Priority Pass automatic delivery service. When your current supply is about to run out, we’ll ship you a fresh supply and your credit card will automatically be billed with the same order you choose today. You’ll always get free shipping, and you never have to call in to reorder. Of course, you can change or cancel this service at any time. We’ll ship your order as soon as it’s processed, and it’ll arrive at your door within 7-10 business days.</p>
+</div>
+
+        <div id="shipping_div" data-bind="visible: shippingAddressVisible" style="display: none;">
+
+      <h2 class="form_headline">Enter Your Shipping Address</h2>
+
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">First Name:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToFirstName" type="text" value="" maxlength="20" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Last Name:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToLastName" type="text" value="" maxlength="30" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Address 1:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToAddressLine1" type="text" value="" maxlength="40" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required" style="color:#FFF;">*</span><span class="field_text">Address 2:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToAddressLine2" type="text" value="" maxlength="40" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">City:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToCity" type="text" value="" maxlength="35" class="form-control">      </div>
+      <div class="clear"></div>
+  </div>
+
+        <div id="__shipToStateInputSection__" class="form-group">      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">State:</span>
+          </div>
+          <div class="field_input">
+        <input id="whichShipToStateInput" name="formComponentsMap['order'].whichShipToStateInput" type="hidden" value="dropDown" class="form-control">
+        <span id="shipToStateSelect" data-bind=""><select name="formComponentsMap['order'].shipToStateId" onchange="AGORA.__onShippingStateChange__($(this).find('option:selected').text());" class="form-control input-sm"><option value="">Select A State</option>undefined<option value="1">AA - ARMED FORCES</option><option value="4">AE - ARMED FORCES</option><option value="5">AK - ALASKA</option><option value="6">AL - ALABAMA</option><option value="7">AP - APO/FPO</option><option value="8">AR - ARKANSAS</option><option value="9">AS - AMERICAN SAMOA</option><option value="10">AZ - ARIZONA</option><option value="12">CA - CALIFORNIA</option><option value="13">CM - N MARIANA IS.</option><option value="14">CO - COLORADO</option><option value="15">CT - CONNECTICUT</option><option value="16">CZ - CANAL ZONE</option><option value="17">DC - WASHINGTON D C</option><option value="18">DE - DELAWARE</option><option value="19">FL - FLORIDA</option><option value="20">GA - GEORGIA</option><option value="21">GU - GUAM</option><option value="22">HI - HAWAII</option><option value="23">HO - HOUSE</option><option value="24">IA - IOWA</option><option value="25">ID - IDAHO</option><option value="26">IL - ILLINOIS</option><option value="27">IN - INDIANA</option><option value="28">KS - KANSAS</option><option value="29">KY - KENTUCKY</option><option value="30">LA - LOUISIANA</option><option value="31">MA - MASSACHUSETTS</option><option value="33">MD - MARYLAND</option><option value="34">ME - MAINE</option><option value="35">MI - MICHIGAN</option><option value="36">MN - MINNESOTA</option><option value="37">MO - MISSOURI</option><option value="39">MP - SAIPAN</option><option value="40">MS - MISSISSIPPI</option><option value="41">MT - MONTANA</option><option value="43">NC - NORTH CAROLINA</option><option value="44">ND - NORTH DAKOTA</option><option value="45">NE - NEBRASKA</option><option value="46">NH - NEW HAMPSHIRE</option><option value="47">NJ - NEW JERSEY</option><option value="49">NM - NEW MEXICO</option><option value="55">NV - NEVADA</option><option value="56">NY - NEW YORK</option><option value="57">OH - OHIO</option><option value="58">OK - OKLAHOMA</option><option value="60">OR - OREGON</option><option value="61">PA - PENNSYLVANIA</option><option value="64">PR - PUERTO RICO</option><option value="65">PW - PALAU</option><option value="68">RI - RHODE ISLAND</option><option value="70">SC - SOUTH CAROLINA</option><option value="71">SD - SOUTH DAKOTA</option><option value="74">TN - TENNESSEE</option><option value="75">TX - TEXAS</option><option value="76">UT - UTAH</option><option value="77">VA - VIRGINIA</option><option value="78">VI - VIRGIN ISLANDS</option><option value="80">VT - VERMONT</option><option value="82">WA - WASHINGTON</option><option value="83">WI - WISCONSIN</option><option value="84">WV - WEST VIRGINIA</option><option value="85">WY - WYOMING</option></select></span>
+
+    <input type="text" data-bind="value:AGORA.viewModel.shippingStateName, visible: false " class="form-control" style="display: none;">
+          </div>
+          <div class="clear"></div>
+      </div>
+</div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Zip/Postal Code:</span>
+      </div>
+      <div class="field_input">
+    <input id="__shipToZipCode" name="formComponentsMap['order'].shipToPostalCode" type="text" value="" maxlength="9" class="form-control">
+      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Country:</span>
+      </div>
+      <div class="field_input">
+
+    <script type="text/javascript">
+    //<![CDATA[
+        Namespace('AGORA', {
+            __onShippingCountryChange__: function(countryId, countryName) {
+                var stateSelect = '';
+                var whichStateInput = '';
+                var stateOptionsArray = new Array();
+                var postalCodeRequiredMap = new Object();
+	            if(countryId != null) {
+	            	//gather country iso2 code:
+					$.ajax({
+					     url: "/SOL_astavida1bottle_0418/WSOLV301/getCountryISO2Code",
+					     data: {countryId: countryId},
+
+					     success: function(data) {
+					     	AGORA.viewModel.iso2CountryCode(data);
+					     	console.log ("Country Code is now:  " + AGORA.viewModel.iso2CountryCode() + "\nLocale is now: en-" + AGORA.viewModel.iso2CountryCode());
+					     	if (window._modoModal) {
+					     		window._modoModal.updateModal({locale: "en-" + data});
+					     	}
+					     },
+					     async: false   // Need to make this ajax call synchronous otherwise we will require callbacks!
+					});
+				}
+
+
+                    AGORA.viewModel.shippingCountryId(countryId);
+                    AGORA.viewModel.shippingCountryName(countryName);
+
+                    var stateRequiredIndicator = document.getElementById('shipToStateRequiredIndicator');
+                    var stateInputSection = $('#__shipToStateInputSection__');
+                    var postcodeEverywhereSpan = document.getElementById('__shipToPostcodeEverywhereSpan__');
+
+
+                        postalCodeRequiredMap["1"] = true;
+
+                AGORA.__onShippingStateChange__();
+                    stateOptionsArray[1] += '<option value="1"  >AA - ARMED FORCES</option>';
+                    stateOptionsArray[38] += '<option value="2"  >AB - ALBERTA</option>';
+                    stateOptionsArray[10] += '<option value="124"  >ABA - BUENOS AIRES</option>';
+                    stateOptionsArray[30] += '<option value="148"  >AC - Acre</option>';
+                    stateOptionsArray[10] += '<option value="125"  >ACA - CATAMARCA</option>';
+                    stateOptionsArray[10] += '<option value="126"  >ACB - CORDOBA</option>';
+                    stateOptionsArray[10] += '<option value="127"  >ACF - CIUDAD AUTO BA</option>';
+                    stateOptionsArray[10] += '<option value="128"  >ACH - CHACO</option>';
+                    stateOptionsArray[10] += '<option value="129"  >ACR - CORRIENTES</option>';
+                    stateOptionsArray[10] += '<option value="130"  >ACT - CHUBUT</option>';
+                    stateOptionsArray[14] += '<option value="3"  >ACT - AUS CAPITAL TER</option>';
+                    stateOptionsArray[1] += '<option value="4"  >AE - ARMED FORCES</option>';
+                    stateOptionsArray[10] += '<option value="131"  >AER - ENTRE RIOS</option>';
+                    stateOptionsArray[10] += '<option value="132"  >AFO - FORMOSA</option>';
+                    stateOptionsArray[10] += '<option value="133"  >AJY - JUJUY</option>';
+                    stateOptionsArray[1] += '<option value="5"  >AK - ALASKA</option>';
+                    stateOptionsArray[1] += '<option value="6"  >AL - ALABAMA</option>';
+                    stateOptionsArray[30] += '<option value="149"  >AL - Alagoas</option>';
+                    stateOptionsArray[10] += '<option value="134"  >ALP - LA PAMPA</option>';
+                    stateOptionsArray[10] += '<option value="135"  >ALR - LA RIOJA</option>';
+                    stateOptionsArray[30] += '<option value="150"  >AM - Amazonas</option>';
+                    stateOptionsArray[10] += '<option value="136"  >AMI - MISIONES</option>';
+                    stateOptionsArray[10] += '<option value="137"  >AMZ - MENDOZA</option>';
+                    stateOptionsArray[99] += '<option value="87"  >ANDAMAN AND NICOBAR ISLANDS</option>';
+                    stateOptionsArray[10] += '<option value="138"  >ANQ - NEUQUEN</option>';
+                    stateOptionsArray[30] += '<option value="151"  >AP - Amapá</option>';
+                    stateOptionsArray[99] += '<option value="88"  >ANDHRA PRADESH</option>';
+                    stateOptionsArray[1] += '<option value="7"  >AP - APO/FPO</option>';
+                    stateOptionsArray[1] += '<option value="8"  >AR - ARKANSAS</option>';
+                    stateOptionsArray[99] += '<option value="89"  >ARUNACHAL PRADESH</option>';
+                    stateOptionsArray[10] += '<option value="139"  >ARN - RÍO NEGRO</option>';
+                    stateOptionsArray[99] += '<option value="90"  >ASSAM</option>';
+                    stateOptionsArray[1] += '<option value="9"  >AS - AMERICAN SAMOA</option>';
+                    stateOptionsArray[10] += '<option value="140"  >ASA - SALTA</option>';
+                    stateOptionsArray[10] += '<option value="141"  >ASC - SANTA CRUZ</option>';
+                    stateOptionsArray[10] += '<option value="142"  >ASE - SANT DEL ESTERO</option>';
+                    stateOptionsArray[10] += '<option value="143"  >ASF - SANTA FE</option>';
+                    stateOptionsArray[10] += '<option value="144"  >ASJ - SAN JUAN</option>';
+                    stateOptionsArray[10] += '<option value="145"  >ASL - SAN LUIS</option>';
+                    stateOptionsArray[10] += '<option value="146"  >ATF - TIERRA DEL FUEG</option>';
+                    stateOptionsArray[10] += '<option value="147"  >ATU - TUCUMAN</option>';
+                    stateOptionsArray[1] += '<option value="10"  >AZ - ARIZONA</option>';
+                    stateOptionsArray[30] += '<option value="152"  >BA - Bahia</option>';
+                    stateOptionsArray[38] += '<option value="11"  >BC - BRIT. COLUMBIA</option>';
+                    stateOptionsArray[99] += '<option value="91"  >BIHAR</option>';
+                    stateOptionsArray[1] += '<option value="12"  >CA - CALIFORNIA</option>';
+                    stateOptionsArray[30] += '<option value="153"  >CE - Ceará</option>';
+                    stateOptionsArray[99] += '<option value="92"  >CHHATTISGARH</option>';
+                    stateOptionsArray[99] += '<option value="93"  >CHANDIGARH</option>';
+                    stateOptionsArray[1] += '<option value="13"  >CM - N MARIANA IS.</option>';
+                    stateOptionsArray[1] += '<option value="14"  >CO - COLORADO</option>';
+                    stateOptionsArray[1] += '<option value="15"  >CT - CONNECTICUT</option>';
+                    stateOptionsArray[1] += '<option value="16"  >CZ - CANAL ZONE</option>';
+                    stateOptionsArray[1] += '<option value="17"  >DC - WASHINGTON D C</option>';
+                    stateOptionsArray[99] += '<option value="94"  >DAMAN AND DIU</option>';
+                    stateOptionsArray[1] += '<option value="18"  >DE - DELAWARE</option>';
+                    stateOptionsArray[30] += '<option value="154"  >DF - Distrito Federal</option>';
+                    stateOptionsArray[99] += '<option value="95"  >NEW DELHI</option>';
+                    stateOptionsArray[99] += '<option value="96"  >DADRA AND NAGAR HAVELI</option>';
+                    stateOptionsArray[30] += '<option value="155"  >ES - Espírito Santo</option>';
+                    stateOptionsArray[1] += '<option value="19"  >FL - FLORIDA</option>';
+                    stateOptionsArray[1] += '<option value="20"  >GA - GEORGIA</option>';
+                    stateOptionsArray[99] += '<option value="97"  >GOA</option>';
+                    stateOptionsArray[99] += '<option value="98"  >GUJARAT</option>';
+                    stateOptionsArray[30] += '<option value="156"  >GO - Goiás</option>';
+                    stateOptionsArray[1] += '<option value="21"  >GU - GUAM</option>';
+                    stateOptionsArray[1] += '<option value="22"  >HI - HAWAII</option>';
+                    stateOptionsArray[1] += '<option value="23"  >HO - HOUSE</option>';
+                    stateOptionsArray[99] += '<option value="99"  >HIMACHAL PRADESH</option>';
+                    stateOptionsArray[99] += '<option value="100"  >HARYANA</option>';
+                    stateOptionsArray[1] += '<option value="24"  >IA - IOWA</option>';
+                    stateOptionsArray[1] += '<option value="25"  >ID - IDAHO</option>';
+                    stateOptionsArray[1] += '<option value="26"  >IL - ILLINOIS</option>';
+                    stateOptionsArray[1] += '<option value="27"  >IN - INDIANA</option>';
+                    stateOptionsArray[99] += '<option value="101"  >JHARKHAND</option>';
+                    stateOptionsArray[99] += '<option value="102"  >JAMMU AND KASHMIR</option>';
+                    stateOptionsArray[99] += '<option value="103"  >KARNATAKA</option>';
+                    stateOptionsArray[99] += '<option value="104"  >KERALA</option>';
+                    stateOptionsArray[1] += '<option value="28"  >KS - KANSAS</option>';
+                    stateOptionsArray[1] += '<option value="29"  >KY - KENTUCKY</option>';
+                    stateOptionsArray[1] += '<option value="30"  >LA - LOUISIANA</option>';
+                    stateOptionsArray[99] += '<option value="105"  >LAKSHADWEEP</option>';
+                    stateOptionsArray[30] += '<option value="157"  >MA - Maranhão</option>';
+                    stateOptionsArray[1] += '<option value="31"  >MA - MASSACHUSETTS</option>';
+                    stateOptionsArray[38] += '<option value="32"  >MB - MANITOBA</option>';
+                    stateOptionsArray[1] += '<option value="33"  >MD - MARYLAND</option>';
+                    stateOptionsArray[1] += '<option value="34"  >ME - MAINE</option>';
+                    stateOptionsArray[30] += '<option value="158"  >MG - Minas Gerais</option>';
+                    stateOptionsArray[99] += '<option value="106"  >MAHARASHTRA</option>';
+                    stateOptionsArray[1] += '<option value="35"  >MI - MICHIGAN</option>';
+                    stateOptionsArray[99] += '<option value="107"  >MEGHALAYA</option>';
+                    stateOptionsArray[99] += '<option value="108"  >MANIPUR</option>';
+                    stateOptionsArray[1] += '<option value="36"  >MN - MINNESOTA</option>';
+                    stateOptionsArray[1] += '<option value="37"  >MO - MISSOURI</option>';
+                    stateOptionsArray[38] += '<option value="38"  >MP - NORTHERN MARIAN</option>';
+                    stateOptionsArray[1] += '<option value="39"  >MP - SAIPAN</option>';
+                    stateOptionsArray[99] += '<option value="109"  >MADHYA PRADESH</option>';
+                    stateOptionsArray[30] += '<option value="159"  >MS - Mato Grosso do Sul</option>';
+                    stateOptionsArray[1] += '<option value="40"  >MS - MISSISSIPPI</option>';
+                    stateOptionsArray[1] += '<option value="41"  >MT - MONTANA</option>';
+                    stateOptionsArray[30] += '<option value="160"  >MT - Mato Grosso</option>';
+                    stateOptionsArray[99] += '<option value="110"  >MIZORAM</option>';
+                    stateOptionsArray[38] += '<option value="42"  >NB - NEW BRUNSWICK</option>';
+                    stateOptionsArray[1] += '<option value="43"  >NC - NORTH CAROLINA</option>';
+                    stateOptionsArray[1] += '<option value="44"  >ND - NORTH DAKOTA</option>';
+                    stateOptionsArray[1] += '<option value="45"  >NE - NEBRASKA</option>';
+                    stateOptionsArray[1] += '<option value="46"  >NH - NEW HAMPSHIRE</option>';
+                    stateOptionsArray[1] += '<option value="47"  >NJ - NEW JERSEY</option>';
+                    stateOptionsArray[38] += '<option value="48"  >NL - NEWFOUNDLAND</option>';
+                    stateOptionsArray[99] += '<option value="112"  >NAGALAND</option>';
+                    stateOptionsArray[1] += '<option value="49"  >NM - NEW MEXICO</option>';
+                    stateOptionsArray[38] += '<option value="50"  >NS - NOVA SCOTIA</option>';
+                    stateOptionsArray[14] += '<option value="51"  >NSW - NEW SOUTH WALES</option>';
+                    stateOptionsArray[14] += '<option value="52"  >NT - NORTHERN TERR</option>';
+                    stateOptionsArray[38] += '<option value="53"  >NT - N.W. TERRITORY</option>';
+                    stateOptionsArray[38] += '<option value="54"  >NU - NUNAVUT TERR.</option>';
+                    stateOptionsArray[1] += '<option value="55"  >NV - NEVADA</option>';
+                    stateOptionsArray[1] += '<option value="56"  >NY - NEW YORK</option>';
+                    stateOptionsArray[1] += '<option value="57"  >OH - OHIO</option>';
+                    stateOptionsArray[1] += '<option value="58"  >OK - OKLAHOMA</option>';
+                    stateOptionsArray[38] += '<option value="59"  >ON - ONTARIO</option>';
+                    stateOptionsArray[1] += '<option value="60"  >OR - OREGON</option>';
+                    stateOptionsArray[99] += '<option value="113"  >ORISSA</option>';
+                    stateOptionsArray[30] += '<option value="161"  >PA - Pará</option>';
+                    stateOptionsArray[1] += '<option value="61"  >PA - PENNSYLVANIA</option>';
+                    stateOptionsArray[30] += '<option value="162"  >PB - Paraíba</option>';
+                    stateOptionsArray[99] += '<option value="114"  >PUNJAB</option>';
+                    stateOptionsArray[30] += '<option value="163"  >PE - Pernambuco</option>';
+                    stateOptionsArray[38] += '<option value="62"  >PE - PR. EDWARD IS.</option>';
+                    stateOptionsArray[30] += '<option value="164"  >PI - Piauí</option>';
+                    stateOptionsArray[38] += '<option value="63"  >PQ - QUEBEC</option>';
+                    stateOptionsArray[1] += '<option value="64"  >PR - PUERTO RICO</option>';
+                    stateOptionsArray[30] += '<option value="165"  >PR - Paraná</option>';
+                    stateOptionsArray[1] += '<option value="65"  >PW - PALAU</option>';
+                    stateOptionsArray[99] += '<option value="115"  >PUDUCHERRY</option>';
+                    stateOptionsArray[38] += '<option value="66"  >QC - QUEBEC</option>';
+                    stateOptionsArray[14] += '<option value="67"  >QLD - QUEENSLAND</option>';
+                    stateOptionsArray[1] += '<option value="68"  >RI - RHODE ISLAND</option>';
+                    stateOptionsArray[99] += '<option value="116"  >RAJASTHAN</option>';
+                    stateOptionsArray[30] += '<option value="166"  >RJ - Rio de Janeiro</option>';
+                    stateOptionsArray[30] += '<option value="167"  >RN - Rio Grande do Norte</option>';
+                    stateOptionsArray[30] += '<option value="168"  >RO - Rondônia</option>';
+                    stateOptionsArray[30] += '<option value="169"  >RR - Roraima</option>';
+                    stateOptionsArray[30] += '<option value="170"  >RS - Rio Grande do Sul</option>';
+                    stateOptionsArray[14] += '<option value="69"  >SA - SOUTH AUSTRALIA</option>';
+                    stateOptionsArray[1] += '<option value="70"  >SC - SOUTH CAROLINA</option>';
+                    stateOptionsArray[30] += '<option value="171"  >SC - Santa Catarina</option>';
+                    stateOptionsArray[1] += '<option value="71"  >SD - SOUTH DAKOTA</option>';
+                    stateOptionsArray[30] += '<option value="172"  >SE - Sergipe</option>';
+                    stateOptionsArray[99] += '<option value="117"  >SIKKIM</option>';
+                    stateOptionsArray[38] += '<option value="72"  >SK - SASKATCHEWAN</option>';
+                    stateOptionsArray[30] += '<option value="173"  >SP - São Paulo</option>';
+                    stateOptionsArray[14] += '<option value="73"  >TAS - TASMANIA</option>';
+                    stateOptionsArray[99] += '<option value="123"  >TELANGANA</option>';
+                    stateOptionsArray[1] += '<option value="74"  >TN - TENNESSEE</option>';
+                    stateOptionsArray[99] += '<option value="118"  >TAMIL NADU</option>';
+                    stateOptionsArray[30] += '<option value="174"  >TO - Tocantins</option>';
+                    stateOptionsArray[99] += '<option value="119"  >TRIPURA</option>';
+                    stateOptionsArray[1] += '<option value="75"  >TX - TEXAS</option>';
+                    stateOptionsArray[99] += '<option value="120"  >UTTARAKHAND</option>';
+                    stateOptionsArray[99] += '<option value="121"  >UTTAR PRADESH</option>';
+                    stateOptionsArray[1] += '<option value="76"  >UT - UTAH</option>';
+                    stateOptionsArray[1] += '<option value="77"  >VA - VIRGINIA</option>';
+                    stateOptionsArray[1] += '<option value="78"  >VI - VIRGIN ISLANDS</option>';
+                    stateOptionsArray[14] += '<option value="79"  >VIC - VICTORIA</option>';
+                    stateOptionsArray[1] += '<option value="80"  >VT - VERMONT</option>';
+                    stateOptionsArray[14] += '<option value="81"  >WA - WESTERN AUS</option>';
+                    stateOptionsArray[1] += '<option value="82"  >WA - WASHINGTON</option>';
+                    stateOptionsArray[99] += '<option value="122"  >WEST BENGAL</option>';
+                    stateOptionsArray[1] += '<option value="83"  >WI - WISCONSIN</option>';
+                    stateOptionsArray[1] += '<option value="84"  >WV - WEST VIRGINIA</option>';
+                    stateOptionsArray[1] += '<option value="85"  >WY - WYOMING</option>';
+                    stateOptionsArray[38] += '<option value="86"  >YT - YUKON TERR.</option>';
+
+
+                if (stateOptionsArray[countryId] != undefined && stateOptionsArray[countryId] != 'UNSUPPORTED') {
+                    stateSelect = '<select name="formComponentsMap[\'order\'].shipToStateId" onchange="AGORA.__onShippingStateChange__($(this).find(\'option:selected\').text());" class="form-control input-sm" class="form_input">' +
+                        '<option value="">Select A State</option>'+
+                        stateOptionsArray[countryId] +
+                        '</select>';
+                    whichStateInput = 'dropDown';
+                    if(stateRequiredIndicator) stateRequiredIndicator.style.display = 'inline';
+                    stateInputSection.css('display', '');
+                } else {
+                    AGORA.__onShippingStateChange__('');
+                    stateSelect = '<input name="formComponentsMap[\'order\'].shipToStateName" type="text" value="" data-bind="" onchange="AGORA.__onShippingStateChange__($(this).val());" class="form_input" class="form-control"/>';
+                    whichStateInput = 'textBox';
+                    if(stateRequiredIndicator) stateRequiredIndicator.style.display = 'none';
+
+                    if (stateOptionsArray[countryId] == 'UNSUPPORTED' && stateInputSection.size() > 0) {
+                        stateInputSection.css('display', 'none');
+                    } else {
+                        stateInputSection.css('display', '');
+                    }
+                }
+
+                    var postalCodeRequiredIndicator = document.getElementById('shipToPostalCodeRequiredIndicator');
+
+                if(postalCodeRequiredMap[countryId] && postalCodeRequiredIndicator) {
+                    postalCodeRequiredIndicator.style.display = 'inline';
+                } else if (postalCodeRequiredIndicator) {
+                    postalCodeRequiredIndicator.style.display = 'none';
+                }
+
+                    if(document.getElementById('shipToStateSelect') != null) {
+                        document.getElementById('shipToStateSelect').innerHTML = stateSelect;
+                        document.getElementById('whichShipToStateInput').value = whichStateInput;
+                    }
+
+
+                // Argentina:
+                if(document.getElementById('argentinaTaxFieldsBlock') != null) {
+                    if(countryId && countryId != "10") {
+                        document.getElementById('argentinaTaxFieldsBlock').style.display = 'none';
+                    } else {
+                        document.getElementById('argentinaTaxFieldsBlock').style.display = 'block';
+                    }
+                }
+
+                // Country Tax Id (Brazil/Argentina):
+
+                // EU-VAT:
+                    checkIfCountryRequiresEuVat(countryId, "shipping");
+
+            },
+            __onShippingStateChange__: function(stateName) {
+                    AGORA.viewModel.shippingStateName(stateName);
+            }
+        });
+    //]]>
+
+    </script>
+
+        <select id="__shippingCountrySelect__" name="formComponentsMap['order'].shipToCountryId" class="form_input" data-bind="" onchange="AGORA.__onShippingCountryChange__($(this).val(), $(this).find('option:selected').text());">
+
+                <option value="1" selected="selected">UNITED STATES</option>
+        </select>
+
+        <input type="text" data-bind="value:AGORA.viewModel.shippingCountryName, visible: false " class="form-control" style="display: none;">
+
+        <script type="text/javascript">$(document).ready(function(){AGORA.__onShippingCountryChange__($('#__shippingCountrySelect__').val(), $('#__shippingCountrySelect__').find('option:selected').text())});</script>
+      </div>
+      <div class="clear"></div>
+  </div>
+
+  <div class="field_wrapper">
+      <div class="field_name">
+          <span class="required">*</span><span class="field_text">Email:</span>
+      </div>
+      <div class="field_input">
+<input name="formComponentsMap['order'].shipToEmailAddress" type="text" value="" maxlength="254" class="form-control" id="__billingEmailAddress__">      </div>
+      <div class="clear"></div>
+  </div>
+
+    <div data-bind="" class="form-group">
+      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">Re-Type Email:</span>
+          </div>
+          <div class="field_input">
+<input name="formComponentsMap['order'].confirmShipToEmailAddress" type="text" value="" maxlength="254" class="form-control">          </div>
+          <div class="clear"></div>
+      </div>
+    </div>
+
+        </div>
+
+
+
+
+      <div class="security_stamp">
+<!-- This link contains a Javascript file that generates the new McAffe Image --> <script src="https://cdn.ywxi.net/js/inline.js?w=90"></script><div style="display: inline-block; width: 90px; height: 37px; background-size: contain; background-image: url(&quot;https://cdn.ywxi.net/meter/orders.solaireproducts.com/102.svg?ts=1578410772961&quot;); background-position: center top; background-repeat: no-repeat; cursor: pointer;" class="mfes-trustmark loaded" data-width="90" data-height="37" data-ext="svg" data-type="102" oncontextmenu="return false;"></div>      </div>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        Namespace('AGORA', {
+            submitForm: function(isSelfContainedForm, effortPaymentOptionId) {
+                if (isSelfContainedForm === undefined) {
+                    isSelfContainedForm = false;
+                }
+
+                if (!isSelfContainedForm) {
+                    document.getElementById("formComponentsMap['paymentOption'].effortPaymentOptionId").value=effortPaymentOptionId;
+                }
+
+                window.setTimeout(AGORA.disableSubmit, 1); // Fix to prevent disable from not submitting the form
+                return true;
+            },
+            disableSubmit: function() {
+                $("input[name=btnPaymentOptionSubmit]").attr("disabled", "disabled").val("Your order is being processed....");
+            }
+        });
+    </script>
+
+        <input name="formComponentsMap['paymentOption'].effortPaymentOptionId" id="formComponentsMap['paymentOption'].effortPaymentOptionId" type="hidden" value="">
+
+
+    <div data-bind="visible: isPaymentOptionSupported(6293117)">
+                <!-- START JAVASCRIPT FOR KOUNT OPTION BLOCK -->
+                <script type="text/javascript" src="https://ssl.kaptcha.com/collect/sdk?m=171440&amp;s=RnHqOgT-n8qzue"></script>
+                <script type="text/javascript">
+                    var client = new ka.ClientSDK();
+                    client.autoLoadEvents();
+                </script>
+                <!-- END JAVASCRIPT FOR KOUNT OPTION BLOCK -->
+
+
+      <div class="hidethis">
+                  Secure Credit Card Online
+
+      </div>
+
+
+      <div class="prop65Box" style="border: 1px solid black; padding: 10px; display:none; max-width:400px; margin:auto; text-align:center;"><p id="propWarning" style="cursor:pointer;"><img alt="exclamation point warning" style="width: 25px;" src="https://d2ne8nk5ac9hp7.cloudfront.net/hsn/668scane-cannaease/20190917-copyedits/Warning-icon-25.png"><strong>Warning</strong> Click for California<br> Prop 65 Product Alert</p><p id="warningType" style="display: none; cursor:pointer;">Cancer and Reproductive Harm - <span id="warnClick"><u>www.P65Warnings.ca.gov</u></span></p></div><div class="field_wrapper cc_wrapper">
+          <div class="cc_card">
+              <label class="ccClick"><div id="cc_visa" class="cc_image"></div>    <input name="formComponentsMap['paymentOption'].creditCardTypeId" onclick="AGORA.viewModel.ccTypeSetter(true);" data-bind="checked: selectedCreditCardTypeId, disable: selectedCreditCard" type="radio" value="3">
+<span class="field_text">Visa</span></label>
+          </div>
+          <br>
+          <div class="cc_card">
+              <label class="ccClick"><div id="cc_mc" class="cc_image"></div>    <input name="formComponentsMap['paymentOption'].creditCardTypeId" onclick="AGORA.viewModel.ccTypeSetter(true);" data-bind="checked: selectedCreditCardTypeId, disable: selectedCreditCard" type="radio" value="2">
+<span class="field_text">MasterCard</span></label>
+          </div>
+          <br>
+          <div class="clear"></div>
+          <div class="cc_card">
+              <label class="ccClick"><div id="cc_disc" class="cc_image"></div>    <input name="formComponentsMap['paymentOption'].creditCardTypeId" onclick="AGORA.viewModel.ccTypeSetter(true);" data-bind="checked: selectedCreditCardTypeId, disable: selectedCreditCard" type="radio" value="4">
+<span class="field_text">Discover</span></label>
+          </div>
+          <br>
+          <div class="cc_card">
+              <label class="ccClick"><div id="cc_amex" class="cc_image"></div>    <input name="formComponentsMap['paymentOption'].creditCardTypeId" onclick="AGORA.viewModel.ccTypeSetter(false);" data-bind="checked: selectedCreditCardTypeId, disable: selectedCreditCard" type="radio" value="1">
+<span class="field_text">American Express</span></label>
+          </div>
+          <br>
+          <div class="clear"></div>
+
+      </div>
+<!-- START CREDIT CARD HOLDER MACRO -->
+   <div class="field_wrapper" style="margin-top:4em;">
+                <div class="field_name">
+                   <span class="required">*</span><span class="field_text"> Cardholder Name: </span>
+</div>
+<div class="field_input">
+<input name="formComponentsMap['paymentOption'].accountHolderName1" type="text" value="" maxlength="40" class="form-control"></div>
+
+<div class="clear"></div>
+   </div><!-- FINISH CREDIT CARD HOLDER MACRO -->
+
+
+
+
+      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">Card Number</span>
+          </div>
+          <div class="field_input">
+<input name="formComponentsMap['paymentOption'].maskedCreditCardNumber" type="text" value="" maxlength="25" data-bind="value: selectedCreditCardMaskedNumber, enable: (AGORA.viewModel.selectedCreditCard() == null)" autocomplete="off" placeholder="Enter only numbers. No spaces or dashes." class="form-control">          </div>
+          <div class="clear"></div>
+      </div>
+
+      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">Expiration Month</span>
+          </div>
+          <div class="field_input">
+    <select name="formComponentsMap['paymentOption'].creditCardExpirationMonth" data-bind="value: AGORA.viewModel.selectedCreditCard()?parseInt(AGORA.viewModel.selectedCreditCard().expMonth, 10):'0'" class="form-control input-sm">
+        <option value="0">Select a Month</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+    </select>
+          </div>
+          <div class="clear"></div>
+      </div>
+
+      <div class="field_wrapper">
+          <div class="field_name">
+              <span class="required">*</span><span class="field_text">Expiration Year</span>
+          </div>
+          <div class="field_input">
+    <select name="formComponentsMap['paymentOption'].creditCardExpirationYear" data-bind="value: AGORA.viewModel.selectedCreditCard()?AGORA.viewModel.selectedCreditCard().expYear:'0'" class="form-control input-sm">
+
+
+    <option value="0">Select a Year</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+        <option value="2034">2034</option>
+        <option value="2035">2035</option>
+    </select>
+          </div>
+          <div class="clear"></div>
+      </div>
+
+
+
+                      <span class="field_text">Card security code:</span>
+
+<input name="formComponentsMap['paymentOption'].creditCardSecurityCode" type="text" value="" maxlength="4" autocomplete="off" class="form-control">
+<p id="cvv_link" style="font-size:11px;color:#efefef;cursor:pointer;/* text-align:  left; */text-decoration:underline;color:#0645AD;">What is my Card Security Code / CVV Code?</p>
+
+
+                <div class="cvv_pop" style="display: none; max-width: 500px; margin: auto; font-size: 10px; text-align: left;">
+                 <p>A CVV, CVV2, CVC2 or Card Security Code is an authentication feature added by credit card companies as an extra security mesaure against fraud. Your code can be found on the the back of your Visa, MasterCard, or Discover here:</p>
+<img src="https://d13p2xj50zkyqm.cloudfront.net/promos/images/ccard_1.jpg" alt="Card Security" width="100%" class="image_center">
+
+      <p>American Express cards have the code on the front. American Express refers to this as a CID Code:</p>
+<img src="https://d13p2xj50zkyqm.cloudfront.net/promos/images/amex_1.jpg" alt="Card Security" width="100%" class="image_center">
+                 <p class="cvv_close" style="cursor:pointer; text-align:center; color:#0645AD;">Click here to close Card Security Code / CVV Info</p>
+
+                </div>
+
+                <script>
+                $(document).ready(function () {
+                   $(".cvv_pop").hide();
+                   $("#cvv_link").click(function (e) {
+                       e.preventDefault();
+                       $(".cvv_pop").fadeIn('slow');
+                   });
+
+                   $(".cvv_close").click(function () {
+                       $(this).parent().fadeOut("slow");
+                   });
+                });
+                </script>       <div class="greybox">
+          <div class="row">
+              <div class="columns small-8 itemOrder">
+                  <p id="itemOrder"><span id="clickhere">Click Here</span> to Select a Package Option Above:</p>
+              </div>
+              <div class="columns small-2 end">
+                  <p class="finalPrice">$0.00</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="columns small-8 itemOrder">
+                  <p>Shipping</p>
+              </div>
+              <div class="columns small-2 end">
+                  <p>Free</p>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="columns small-8 itemOrder">
+                  <p><strong>Total:</strong></p>
+              </div>
+              <div class="columns small-2 end">
+                  <p class="finalPrice">$0.00</p>
+              </div>
+          </div>
+<div>
+
+    <div class="form-group" id="autoRenewAuth" style="" align="center">
+<div id="arBox" style="
+    max-width: 650px;
+    margin: 1rem auto;
+">
+<div class="outeredge">
+<div class="row collapse">
+
+<div class="control-label medium-1 small-2 columns collapse">
+    <input name="formComponentsMap['paymentOption'].hasAgreedToAutoRenewConditions" type="checkbox" value="true" id="arCheck" style="
+  padding: 10px;" class="check">
+    <input type="hidden" name="_formComponentsMap['paymentOption'].hasAgreedToAutoRenewConditions">
+
+        </div>
+<div class="medium-11 small-10 columns">
+        <div class="explainMessage" style="
+    text-align: left;
+">           <p style="margin:0; font-size:1.4em;"> <span class="required" style="padding:0;">*</span> I understand my discounted rate will be locked in and my card information will be saved so I can be charged this same low rate at the frequency selected above unless I choose to cancel. I’m always protected by your “100% Anytime Guarantee”.</p>
+
+                <p class="alertMessage cardMessage" style="display:none;">Please check the box above to complete your order.</p>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+    <input name="btnPaymentOptionSubmit" onclick="return AGORA.submitForm(false,6293117);" type="submit" value="Complete Your Order" class="continue" style="display: none;">
+</div>
+      <div class="continueBlock">Complete Your Order</div>
+ </div>
+    </div>
+
+
+
+
+
+          <h2 class="form_headline" style="font-size:1.8em;border:none;">Your Promotion Code is: <span id="promoCode">WSOLV301</span></h2>
+
+  </form>
+</div>
+
+</div>
+</div>
+
+
+<button id="add1">add</button>
+
+<iframe id="checkout" style="width:100%; height: 1000px;" scrolling="no"></iframe>
+
+<script>
+      $(document).ready(function(){
+        console.log('ready!!!');
+
+        $("#add1").on('click', function (event) {
+          console.log('clicked');
+          event.preventDefault();
+          $('#checkout').attr("src", "https://brocelite.ultracartstore.com/cgi-bin/UCEditor?merchantId=BRELT&ADD=BE-30");
+          $("#checkout").css({
+            height: '1200px'
+          });
+          $("#button").click(function() {
+
+          $('html, body').animate({
+              scrollTop: $("#checkout").offset().top
+          }, 2000);
+});
+        })
+
+
+      });
+    </script>

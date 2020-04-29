@@ -1,0 +1,146 @@
+<nav class="navbar is-hidden-mobile is-hidden-tablet-only" style="z-index:1000;">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ shop.url }}" title="{{ shop.name }}">
+        <img src="{{ 'logo-2018-black.png' | asset_url }}" alt="{{ shop.name }}">
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+
+      <div class="columns">
+        <div class="column flex align-center">
+          <div>
+            <a class="navbar-item" href="#">
+                <i class="fas fa-shipping-fast home-page-fa"></i>
+            </a>
+          </div>
+          <div>
+            <p class="green-text-lg">FREE Shipping</p>
+            <p class="">Over $99</p>
+          </div>
+        </div>
+
+
+        <div class="column flex align-center">
+          <div>
+            <a class="navbar-item" href="#">
+                <i class="fas fa-phone home-page-fa"></i>
+            </a>
+          </div>
+          <div>
+            <p class="green-text-lg">Questions?</p>
+            <p class="">Call 810-SPROUTS</p>
+          </div>
+        </div>
+
+
+        <div class="column flex align-center">
+          <div>
+            <a class="navbar-item" href="#">
+                <i class="fas fa-receipt home-page-fa"></i>
+            </a>
+          </div>
+          <div>
+            <p class="green-text-lg">Money-back Guarantee</p>
+            <p class="">Within 60-days</p>
+          </div>
+        </div>
+
+        <div class="column flex align-center">
+        {% if customer.tags contains "wholesale" %}
+           <a class="navbar-item" href="/collections/all">
+            <button class="button is-link">SHOP NOW</button>
+           </a>
+        {% else %}
+          <a class="navbar-item" href="/collections/shop">
+            <button class="button is-link">SHOP NOW</button>
+          </a>
+        {% endif %}
+        </div>
+
+
+    </div>
+
+</div>
+</div>
+
+</nav>
+<nav class="navbar is-hidden-mobile is-hidden-tablet-only" style="z-index:1000; background: #0ba14b;">
+  <div class="container less-padding">
+
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+      <a class="navbar-item" href="/account" title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}">{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}{% endif %}</a>
+      {% if settings.search_enabled %}
+      <a class="navbar-item" href="/search" title="{{ 'general.search.title' | t }}" class="icon-search" id="search-toggle"></a>
+      {% endif %}
+
+      {% if customer.tags contains "wholesale" %}
+
+        {% for link in linklists.main-menu-wholesale.links %}
+          {%- comment %}<locksmith:701e>{% endcomment -%}
+            {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists.main-menu-wholesale %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:701e>{% endcomment -%}
+          {% if linklists[link.handle] == empty %}
+            <a href="{{ link.url }}" class="navbar-item {% if link.active %}active{% endif %}">{{ link.title }}</a>
+          {% else %}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a href="{{ link.url }}" class="navbar-link {% if link.active %}active{% endif %}">{{ link.title }}</a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="{{ link.url }}">{{ link.title }}</a>
+              </div>
+          {% endif %}
+        {% endfor %}
+
+
+      {% else %}
+
+      {% for link in linklists[settings.main_linklist].links %}
+        {%- comment %}<locksmith:60ef>{% endcomment -%}
+          {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[settings.main_linklist] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:60ef>{% endcomment -%}
+        {% if linklists[link.handle] == empty %}
+          <a href="{{ link.url }}" class="navbar-item {% if link.active %}active{% endif %}">{{ link.title }}</a>
+        {% else %}
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a href="{{ link.url }}" class="navbar-link {% if link.active %}active{% endif %}">{{ link.title }}</a>
+            <div class="navbar-dropdown">
+            {% if linklists[link.handle] != empty %}
+              {% for link in linklists[link.handle].links %}
+                {%- comment %}<locksmith:bb83>{% endcomment -%}
+                  {%- include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link, locksmith_subject_parent: linklists[link.handle] %}{% if locksmith_transparent %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:bb83>{% endcomment -%}
+                <a class="navbar-item" href="{{ link.url }}">{{ link.title }}</a>
+              {% endfor %}
+              </div>
+        {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+
+      {% if cart.item_count > 0 %}
+        <a href="#cart" style="padding-top:4%;" class="icon-cart cart-button"><span>{{ cart.item_count }}</span></a>
+      {% else %}
+        <a href="#cart" style="padding-top:4%;" class="icon-cart cart-button"><span> </span></a>
+      {% endif %}
+
+
+<!-- OLD SHOP NOW BUTTON -->
+
+      </div>
+
+      </div>
+      </div>
+</div>
+</nav>

@@ -1,0 +1,78 @@
+<div class="image-text-cart">
+  {% for block in section.blocks %}
+
+   {% if block.settings.code != blank %}
+  <div class="cart-text1">
+    <img src="{{ block.settings.image | img_url : '' }}">
+    {{ block.settings.code }}
+  </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": {
+
+    "en": "Custom content"
+
+  },
+  "max_blocks": 9,
+  "blocks": [
+    {
+      "type": "html",
+      "name": {
+        "de": "Benutzerdefiniertes HTML",
+        "en": "Custom HTML",
+        "es": "HTML personalizado",
+        "fr": "Code HTML personnalisé",
+        "it": "HTML personalizzato",
+        "ja": "HTMLをカスタムする",
+        "pt-BR": "HTML personalizado"
+      },
+      "settings": [
+  {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+       {
+          "type": "html",
+          "id": "code",
+          "label": {
+            "de": "HTML",
+            "en": "HTML",
+            "es": "HTML",
+            "fr": "HTML",
+            "it": "HTML",
+            "ja": "HTML",
+            "pt-BR": "HTML"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+      
+        "en": "Custom content"
+      },
+      "category": {
+        "de": "Komplizierteres Layout",
+        "en": "Advanced layout",
+        "es": "Diseño avanzado",
+        "fr": "Mise en page avancée",
+        "it": "Layout avanzato",
+        "ja": "高度なレイアウト",
+        "pt-BR": "Layout avançado"
+      },
+      "blocks": [
+        {
+          "type": "html"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
